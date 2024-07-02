@@ -13,6 +13,12 @@
 		4A1AEC5A2C33F3F200FB726A /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 4A1AEC592C33F3F200FB726A /* Base */; };
 		4A1AEC622C34055B00FB726A /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A1AEC612C34055B00FB726A /* Colors.xcassets */; };
 		4A1AEC642C3408F900FB726A /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1AEC632C3408F900FB726A /* Colors.swift */; };
+		4A1AEC6A2C340DAF00FB726A /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1AEC692C340DAF00FB726A /* Fonts.swift */; };
+		4A1AEC6F2C342D2900FB726A /* UITextView + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1AEC6E2C342D2900FB726A /* UITextView + Ext.swift */; };
+		4A1AEC762C37D8C100FB726A /* DropDownButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1AEC752C37D8C100FB726A /* DropDownButton.swift */; };
+		4A1AEC792C37F3AD00FB726A /* Montserrat.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4A1AEC782C37F3AD00FB726A /* Montserrat.ttf */; };
+		4A1AEC7D2C37F74D00FB726A /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4A1AEC7C2C37F74D00FB726A /* Montserrat-SemiBold.ttf */; };
+		4A1AEC7F2C37F8FC00FB726A /* DropDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1AEC7E2C37F8FC00FB726A /* DropDownView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +30,12 @@
 		4A1AEC5B2C33F3F200FB726A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A1AEC612C34055B00FB726A /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		4A1AEC632C3408F900FB726A /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		4A1AEC692C340DAF00FB726A /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		4A1AEC6E2C342D2900FB726A /* UITextView + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView + Ext.swift"; sourceTree = "<group>"; };
+		4A1AEC752C37D8C100FB726A /* DropDownButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownButton.swift; sourceTree = "<group>"; };
+		4A1AEC782C37F3AD00FB726A /* Montserrat.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Montserrat.ttf; sourceTree = "<group>"; };
+		4A1AEC7C2C37F74D00FB726A /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
+		4A1AEC7E2C37F8FC00FB726A /* DropDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +70,67 @@
 			children = (
 				4A1AEC4D2C33F3F100FB726A /* AppDelegate.swift */,
 				4A1AEC4F2C33F3F100FB726A /* SceneDelegate.swift */,
-				4A1AEC562C33F3F200FB726A /* Assets.xcassets */,
-				4A1AEC612C34055B00FB726A /* Colors.xcassets */,
-				4A1AEC632C3408F900FB726A /* Colors.swift */,
-				4A1AEC582C33F3F200FB726A /* LaunchScreen.storyboard */,
+				4A1AEC722C37D81100FB726A /* UI Elements */,
+				4A1AEC702C342D6700FB726A /* Helpers */,
+				4A1AEC682C340D8300FB726A /* Resources */,
 				4A1AEC5B2C33F3F200FB726A /* Info.plist */,
+				4A1AEC582C33F3F200FB726A /* LaunchScreen.storyboard */,
 			);
 			path = RickAndMorty;
+			sourceTree = "<group>";
+		};
+		4A1AEC672C340D7600FB726A /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				4A1AEC782C37F3AD00FB726A /* Montserrat.ttf */,
+				4A1AEC7C2C37F74D00FB726A /* Montserrat-SemiBold.ttf */,
+				4A1AEC692C340DAF00FB726A /* Fonts.swift */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		4A1AEC682C340D8300FB726A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4A1AEC562C33F3F200FB726A /* Assets.xcassets */,
+				4A1AEC6B2C3410C500FB726A /* Colors */,
+				4A1AEC672C340D7600FB726A /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		4A1AEC6B2C3410C500FB726A /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+				4A1AEC612C34055B00FB726A /* Colors.xcassets */,
+				4A1AEC632C3408F900FB726A /* Colors.swift */,
+			);
+			path = Colors;
+			sourceTree = "<group>";
+		};
+		4A1AEC702C342D6700FB726A /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				4A1AEC6E2C342D2900FB726A /* UITextView + Ext.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		4A1AEC722C37D81100FB726A /* UI Elements */ = {
+			isa = PBXGroup;
+			children = (
+				4A1AEC822C38301A00FB726A /* DropDownMenu */,
+			);
+			path = "UI Elements";
+			sourceTree = "<group>";
+		};
+		4A1AEC822C38301A00FB726A /* DropDownMenu */ = {
+			isa = PBXGroup;
+			children = (
+				4A1AEC752C37D8C100FB726A /* DropDownButton.swift */,
+				4A1AEC7E2C37F8FC00FB726A /* DropDownView.swift */,
+			);
+			path = DropDownMenu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,9 +191,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A1AEC792C37F3AD00FB726A /* Montserrat.ttf in Resources */,
 				4A1AEC622C34055B00FB726A /* Colors.xcassets in Resources */,
 				4A1AEC572C33F3F200FB726A /* Assets.xcassets in Resources */,
 				4A1AEC5A2C33F3F200FB726A /* Base in Resources */,
+				4A1AEC7D2C37F74D00FB726A /* Montserrat-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,9 +206,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A1AEC762C37D8C100FB726A /* DropDownButton.swift in Sources */,
+				4A1AEC6F2C342D2900FB726A /* UITextView + Ext.swift in Sources */,
+				4A1AEC6A2C340DAF00FB726A /* Fonts.swift in Sources */,
 				4A1AEC4E2C33F3F100FB726A /* AppDelegate.swift in Sources */,
 				4A1AEC642C3408F900FB726A /* Colors.swift in Sources */,
 				4A1AEC502C33F3F100FB726A /* SceneDelegate.swift in Sources */,
+				4A1AEC7F2C37F8FC00FB726A /* DropDownView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
