@@ -19,6 +19,8 @@
 		4A1AEC792C37F3AD00FB726A /* Montserrat.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4A1AEC782C37F3AD00FB726A /* Montserrat.ttf */; };
 		4A1AEC7D2C37F74D00FB726A /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4A1AEC7C2C37F74D00FB726A /* Montserrat-SemiBold.ttf */; };
 		4A1AEC7F2C37F8FC00FB726A /* DropDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1AEC7E2C37F8FC00FB726A /* DropDownView.swift */; };
+		4A1AEC862C38329E00FB726A /* SegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1AEC852C38329E00FB726A /* SegmentControl.swift */; };
+		4A1AEC882C38357000FB726A /* TestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1AEC872C38357000FB726A /* TestVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		4A1AEC782C37F3AD00FB726A /* Montserrat.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Montserrat.ttf; sourceTree = "<group>"; };
 		4A1AEC7C2C37F74D00FB726A /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
 		4A1AEC7E2C37F8FC00FB726A /* DropDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownView.swift; sourceTree = "<group>"; };
+		4A1AEC852C38329E00FB726A /* SegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControl.swift; sourceTree = "<group>"; };
+		4A1AEC872C38357000FB726A /* TestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,7 @@
 			children = (
 				4A1AEC4D2C33F3F100FB726A /* AppDelegate.swift */,
 				4A1AEC4F2C33F3F100FB726A /* SceneDelegate.swift */,
+				4A1AEC872C38357000FB726A /* TestVC.swift */,
 				4A1AEC722C37D81100FB726A /* UI Elements */,
 				4A1AEC702C342D6700FB726A /* Helpers */,
 				4A1AEC682C340D8300FB726A /* Resources */,
@@ -120,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				4A1AEC822C38301A00FB726A /* DropDownMenu */,
+				4A1AEC852C38329E00FB726A /* SegmentControl.swift */,
 			);
 			path = "UI Elements";
 			sourceTree = "<group>";
@@ -209,9 +215,11 @@
 				4A1AEC762C37D8C100FB726A /* DropDownButton.swift in Sources */,
 				4A1AEC6F2C342D2900FB726A /* UITextView + Ext.swift in Sources */,
 				4A1AEC6A2C340DAF00FB726A /* Fonts.swift in Sources */,
+				4A1AEC862C38329E00FB726A /* SegmentControl.swift in Sources */,
 				4A1AEC4E2C33F3F100FB726A /* AppDelegate.swift in Sources */,
 				4A1AEC642C3408F900FB726A /* Colors.swift in Sources */,
 				4A1AEC502C33F3F100FB726A /* SceneDelegate.swift in Sources */,
+				4A1AEC882C38357000FB726A /* TestVC.swift in Sources */,
 				4A1AEC7F2C37F8FC00FB726A /* DropDownView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
