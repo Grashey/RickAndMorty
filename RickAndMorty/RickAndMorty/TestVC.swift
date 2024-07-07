@@ -7,28 +7,25 @@
 
 import UIKit
 
-class TestVC: UIViewController {
+class TestVC: UIViewController{
     
     let items = ["Dead", "Alive", "Robot"]
-    lazy var control = SegmentControl(items: items)
-    
+
     override func viewDidLoad() {
         view.backgroundColor = .white
+        navigationController?.isNavigationBarHidden = true
         
-        control.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(control)
+        let searchView = SearchTextField()
+        searchView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(searchView)
+        
         NSLayoutConstraint.activate([
-            control.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            control.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
-            control.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40)
+            searchView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
+            searchView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
+            searchView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
+            searchView.heightAnchor.constraint(equalToConstant: 44)
         ])
-        
-        control.configure(selectedItemColor: .rm_green)
-        control.configure(target: self, action: #selector(controlTapped(_:)))
-        control.layer.cornerRadius = 15
     }
     
-    @objc func controlTapped(_ sender: UIButton) {
-        print(sender.tag)
-    }
+    
 }

@@ -21,6 +21,8 @@
 		4A1AEC7F2C37F8FC00FB726A /* DropDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1AEC7E2C37F8FC00FB726A /* DropDownView.swift */; };
 		4A1AEC862C38329E00FB726A /* SegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1AEC852C38329E00FB726A /* SegmentControl.swift */; };
 		4A1AEC882C38357000FB726A /* TestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1AEC872C38357000FB726A /* TestVC.swift */; };
+		4A1AEC8A2C39A2B600FB726A /* SearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1AEC892C39A2B600FB726A /* SearchTextField.swift */; };
+		4A1AEC8C2C3A961900FB726A /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4A1AEC8B2C3A961900FB726A /* Montserrat-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		4A1AEC7E2C37F8FC00FB726A /* DropDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownView.swift; sourceTree = "<group>"; };
 		4A1AEC852C38329E00FB726A /* SegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControl.swift; sourceTree = "<group>"; };
 		4A1AEC872C38357000FB726A /* TestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestVC.swift; sourceTree = "<group>"; };
+		4A1AEC892C39A2B600FB726A /* SearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextField.swift; sourceTree = "<group>"; };
+		4A1AEC8B2C3A961900FB726A /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +93,7 @@
 			children = (
 				4A1AEC782C37F3AD00FB726A /* Montserrat.ttf */,
 				4A1AEC7C2C37F74D00FB726A /* Montserrat-SemiBold.ttf */,
+				4A1AEC8B2C3A961900FB726A /* Montserrat-Bold.ttf */,
 				4A1AEC692C340DAF00FB726A /* Fonts.swift */,
 			);
 			path = Fonts;
@@ -126,6 +131,7 @@
 			children = (
 				4A1AEC822C38301A00FB726A /* DropDownMenu */,
 				4A1AEC852C38329E00FB726A /* SegmentControl.swift */,
+				4A1AEC892C39A2B600FB726A /* SearchTextField.swift */,
 			);
 			path = "UI Elements";
 			sourceTree = "<group>";
@@ -199,6 +205,7 @@
 			files = (
 				4A1AEC792C37F3AD00FB726A /* Montserrat.ttf in Resources */,
 				4A1AEC622C34055B00FB726A /* Colors.xcassets in Resources */,
+				4A1AEC8C2C3A961900FB726A /* Montserrat-Bold.ttf in Resources */,
 				4A1AEC572C33F3F200FB726A /* Assets.xcassets in Resources */,
 				4A1AEC5A2C33F3F200FB726A /* Base in Resources */,
 				4A1AEC7D2C37F74D00FB726A /* Montserrat-SemiBold.ttf in Resources */,
@@ -219,6 +226,7 @@
 				4A1AEC4E2C33F3F100FB726A /* AppDelegate.swift in Sources */,
 				4A1AEC642C3408F900FB726A /* Colors.swift in Sources */,
 				4A1AEC502C33F3F100FB726A /* SceneDelegate.swift in Sources */,
+				4A1AEC8A2C39A2B600FB726A /* SearchTextField.swift in Sources */,
 				4A1AEC882C38357000FB726A /* TestVC.swift in Sources */,
 				4A1AEC7F2C37F8FC00FB726A /* DropDownView.swift in Sources */,
 			);
