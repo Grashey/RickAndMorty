@@ -23,6 +23,8 @@
 		4A1AEC882C38357000FB726A /* TestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1AEC872C38357000FB726A /* TestVC.swift */; };
 		4A1AEC8A2C39A2B600FB726A /* SearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1AEC892C39A2B600FB726A /* SearchTextField.swift */; };
 		4A1AEC8C2C3A961900FB726A /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4A1AEC8B2C3A961900FB726A /* Montserrat-Bold.ttf */; };
+		4A1AEC8E2C3BD55900FB726A /* RmButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1AEC8D2C3BD55900FB726A /* RmButton.swift */; };
+		4A1AEC902C3BE43500FB726A /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1AEC8F2C3BE43500FB726A /* UIConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		4A1AEC872C38357000FB726A /* TestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestVC.swift; sourceTree = "<group>"; };
 		4A1AEC892C39A2B600FB726A /* SearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextField.swift; sourceTree = "<group>"; };
 		4A1AEC8B2C3A961900FB726A /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		4A1AEC8D2C3BD55900FB726A /* RmButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RmButton.swift; sourceTree = "<group>"; };
+		4A1AEC8F2C3BE43500FB726A /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,9 +133,11 @@
 		4A1AEC722C37D81100FB726A /* UI Elements */ = {
 			isa = PBXGroup;
 			children = (
+				4A1AEC8F2C3BE43500FB726A /* UIConstants.swift */,
 				4A1AEC822C38301A00FB726A /* DropDownMenu */,
 				4A1AEC852C38329E00FB726A /* SegmentControl.swift */,
 				4A1AEC892C39A2B600FB726A /* SearchTextField.swift */,
+				4A1AEC8D2C3BD55900FB726A /* RmButton.swift */,
 			);
 			path = "UI Elements";
 			sourceTree = "<group>";
@@ -219,6 +225,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A1AEC8E2C3BD55900FB726A /* RmButton.swift in Sources */,
 				4A1AEC762C37D8C100FB726A /* DropDownButton.swift in Sources */,
 				4A1AEC6F2C342D2900FB726A /* UITextView + Ext.swift in Sources */,
 				4A1AEC6A2C340DAF00FB726A /* Fonts.swift in Sources */,
@@ -229,6 +236,7 @@
 				4A1AEC8A2C39A2B600FB726A /* SearchTextField.swift in Sources */,
 				4A1AEC882C38357000FB726A /* TestVC.swift in Sources */,
 				4A1AEC7F2C37F8FC00FB726A /* DropDownView.swift in Sources */,
+				4A1AEC902C3BE43500FB726A /* UIConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

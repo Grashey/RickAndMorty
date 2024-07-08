@@ -10,23 +10,24 @@ import UIKit
 class SegmentControl: UIView {
     
     // MARK: Constants
-    // objects
     private var items: [String] = []
     private var itemsConstraints: [(NSLayoutConstraint, NSLayoutConstraint)] = []
     private var buttons: [UIButton] = []
+    private var normalTextColor: UIColor = .rm_white
+    private var selectedTextColor: UIColor = .rm_black
+    private var selectedContentColor: UIColor = .rm_green
     
     var selectedIndex: Int = .zero
     
-    // size
-    private let defaultHeight: CGFloat = 42
-    private var fontSize: CGFloat = 12
-    
-    //insets
-    private let offset: CGFloat = 10
+    private let buttonHeight: CGFloat = UIConstants.insideHeight
+    private var fontSize: CGFloat = UIConstants.textSize
+    private let offsetW: CGFloat = 6
+    private let offsetH: CGFloat = 6
     private let spacing: CGFloat = 3
         
     // MARK: UI Elements
     private lazy var contentView: UIView = {
+        $0.backgroundColor = selectedContentColor
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
     }(UIView())
@@ -37,6 +38,7 @@ class SegmentControl: UIView {
         
         self.backgroundColor = .rm_background
         self.clipsToBounds = true
+        self.layer.cornerRadius = UIConstants.cornerRadius
     }
     
     required init?(coder: NSCoder) {
@@ -66,7 +68,7 @@ class SegmentControl: UIView {
             let button: UIButton = {
                 $0.tag = index
                 $0.setTitle(items[index], for: .normal)
-                $0.titleLabel?.font = UIFont(name: Fonts.semiBold, size: 12)
+                $0.titleLabel?.font = UIFont(name: Fonts.bold, size: fontSize)
                 $0.setContentCompressionResistancePriority(.required, for: .vertical)
                 $0.translatesAutoresizingMaskIntoConstraints = false
                 $0.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
@@ -79,16 +81,16 @@ class SegmentControl: UIView {
     
     private func addConstraints() {
         NSLayoutConstraint.activate([
-            contentView.topAnchor.constraint(equalTo: self.topAnchor, constant: offset),
-            contentView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -offset)
+            contentView.topAnchor.constraint(equalTo: self.topAnchor, constant: offsetH),
+            contentView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -offsetH)
         ])
         
         for index in .zero..<buttons.count {
             NSLayoutConstraint.activate([
                 buttons[index].widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1/CGFloat(items.count)),
-                buttons[index].topAnchor.constraint(equalTo: self.topAnchor, constant: offset),
-                buttons[index].bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -offset),
-                buttons[index].heightAnchor.constraint(equalToConstant: 32)
+                buttons[index].topAnchor.constraint(equalTo: self.topAnchor, constant: offsetH),
+                buttons[index].bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -offsetH),
+                buttons[index].heightAnchor.constraint(equalToConstant: buttonHeight)
             ])
             if index == .zero {
                 NSLayoutConstraint.activate([
@@ -113,18 +115,18 @@ class SegmentControl: UIView {
         var constraints = Array(repeating: (NSLayoutConstraint(), NSLayoutConstraint()), count: Int(devider))
         for index in .zero..<items.count {
             guard items.count != 1 else {
-                let leading = NSLayoutConstraint(item: contentView, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1, constant: offset)
-                let trailing = NSLayoutConstraint(item: contentView, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1, constant: -offset)
+                let leading = NSLayoutConstraint(item: contentView, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1, constant: offsetW)
+                let trailing = NSLayoutConstraint(item: contentView, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1, constant: -offsetW)
                 constraints[index] = (leading, trailing)
                 return constraints
             }
             if index == .zero {
-                let leading = NSLayoutConstraint(item: contentView, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1, constant: offset)
+                let leading = NSLayoutConstraint(item: contentView, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1, constant: offsetW)
                 let trailing = NSLayoutConstraint(item: contentView, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1/devider, constant: -spacing)
                 constraints[index] = (leading, trailing)
             } else if index == items.count - 1 {
                 let leading = NSLayoutConstraint(item: contentView, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: CGFloat(index)/devider, constant: spacing)
-                let trailing = NSLayoutConstraint(item: contentView, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1, constant: -offset)
+                let trailing = NSLayoutConstraint(item: contentView, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1, constant: -offsetW)
                 constraints[index] = (leading, trailing)
             } else {
                 let leading = NSLayoutConstraint(item: contentView, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: CGFloat(index)/devider, constant: spacing)
@@ -151,35 +153,30 @@ class SegmentControl: UIView {
     
     private func reloadConstraints() {
         for index in .zero..<itemsConstraints.count {
-            if index == selectedIndex {
-                let activatedPair = itemsConstraints[index]
-                activatedPair.0.priority = UILayoutPriority(900)
-                activatedPair.1.priority = UILayoutPriority(900)
-            } else {
-                let pair = itemsConstraints[index]
-                pair.0.priority = UILayoutPriority(750)
-                pair.1.priority = UILayoutPriority(750)
-            }
+            let pair = itemsConstraints[index]
+            pair.0.priority = index == selectedIndex ? UILayoutPriority(900) : UILayoutPriority(750)
+            pair.1.priority = index == selectedIndex ? UILayoutPriority(900) : UILayoutPriority(750)
         }
     }
     
     private func updateLabels() {
         for index in .zero..<buttons.count {
-            buttons[index].setTitleColor(index == selectedIndex ? .rm_black : .rm_white, for: .normal)
+            buttons[index].setTitleColor(index == selectedIndex ? selectedTextColor : normalTextColor, for: .normal)
         }
     }
     
     // MARK: External Configuration
     func configure(selectedItemColor: UIColor) {
-        self.contentView.backgroundColor = selectedItemColor
+        contentView.backgroundColor = selectedItemColor
     }
     
-    func configure(textColor: UIColor) {
-        buttons.forEach { $0.setTitleColor(textColor, for: .normal) }
+    func configureTextColor(selected: UIColor, normal: UIColor) {
+        selectedTextColor = selected
+        normalTextColor = normal
+        updateLabels()
     }
     
     func configure(target: Any?, action: Selector) {
         buttons.forEach { $0.addTarget(target, action: action, for: .touchUpInside)}
     }
-    
 }

@@ -9,17 +9,19 @@ import UIKit
 
 class DropDownButton: UIButton {
     
+    // MARK: Constants
     private let paddingH: CGFloat = 10
     private let paddingW: CGFloat = 17
     private var selectedImage = UIImage(named: "dropUpArrow")
     private var normalImage = UIImage(named: "dropDownArrow")
-    private var backColor = UIColor.rm_dropdownArrow
+    private var backColor = UIColor.rm_background
     private var mainTextColor = UIColor.rm_green
     private var secondaryTextColor = UIColor.rm_white
-    private var mainTextSize: CGFloat = 12
+    private var mainTextSize: CGFloat = UIConstants.textSize
     private var secondaryTextSize: CGFloat = 8
-    private var cornerRadius: CGFloat = 15
+    private var cornerRadius: CGFloat = UIConstants.cornerRadius
     
+    // MARK: UI Elements
     private lazy var headerLabel: UILabel = {
         $0.font = UIFont(name: Fonts.semiBold, size: secondaryTextSize)
         $0.textColor = secondaryTextColor
@@ -52,6 +54,7 @@ class DropDownButton: UIButton {
         return $0
     }(UIView())
     
+    // MARK: LifeCycle
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -79,6 +82,7 @@ class DropDownButton: UIButton {
         return self
     }
     
+    // MARK: Internal methods
     @objc private func buttonTapped() {
         isSelected.toggle()
     }
@@ -100,7 +104,7 @@ class DropDownButton: UIButton {
             headerLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
             headerLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             
-            valueLabel.topAnchor.constraint(equalTo: headerLabel.bottomAnchor),
+            valueLabel.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 2),
             valueLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             valueLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             
@@ -110,6 +114,7 @@ class DropDownButton: UIButton {
         ])
     }
     
+    // MARK: External Configuration
     func configureHeader(_ text: String?) {
         headerLabel.text = text
     }
@@ -119,26 +124,27 @@ class DropDownButton: UIButton {
     }
     
     func configureWith(backColor: UIColor) {
-        self.backColor = backColor
+        backgroundColor = backColor
     }
     
     func configureWith(mainTextColor: UIColor) {
-        self.mainTextColor = mainTextColor
+        valueLabel.textColor = mainTextColor
     }
     
     func configureWith(secondaryTextColor: UIColor) {
-        self.secondaryTextColor = secondaryTextColor
+        headerLabel.textColor = secondaryTextColor
     }
     
     func configureWith(mainTextSize: CGFloat) {
-        self.mainTextSize = mainTextSize
+        valueLabel.font = UIFont(name: Fonts.semiBold, size: mainTextSize)
     }
     
     func configureWith(secondaryTextSize: CGFloat) {
-        self.secondaryTextSize = secondaryTextSize
+        headerLabel.font = UIFont(name: Fonts.semiBold, size: secondaryTextSize)
     }
     
     func configureWith(cornerRadius: CGFloat) {
-        self.cornerRadius = cornerRadius
+        layer.cornerRadius = cornerRadius
     }
+
 }

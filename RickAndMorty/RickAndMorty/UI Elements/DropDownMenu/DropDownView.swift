@@ -9,13 +9,15 @@ import UIKit
 
 class DropDownView: UIView {
     
+    // MARK: Constants
     private let paddingW: CGFloat = 17
     private let paddingH: CGFloat = 10
-    private var backColor = UIColor.rm_dropdownArrow
+    private var backColor = UIColor.rm_background
     private var textColor = UIColor.rm_white
-    private var textSize: CGFloat = 12
-    private var cornerRadius: CGFloat = 15
+    private var textSize: CGFloat = UIConstants.textSize
+    private var cornerRadius: CGFloat = UIConstants.cornerRadius
     
+    // MARK: UI Elements
     private lazy var button: DropDownButton = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.addTarget(self, action: #selector(toggleList), for: .touchUpInside)
@@ -34,7 +36,9 @@ class DropDownView: UIView {
     
     private lazy var stackView: UIStackView = {
         $0.axis = .vertical
-        $0.spacing = 10
+        $0.spacing = 16
+        let tapGR = UITapGestureRecognizer(target: self, action: #selector(rowSelected(_:)))
+        $0.addGestureRecognizer(tapGR)
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
     }(UIStackView())
@@ -44,6 +48,7 @@ class DropDownView: UIView {
         return $0
     }(UIScrollView())
 
+    // MARK: LifeCycle
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -86,6 +91,34 @@ class DropDownView: UIView {
         ])
     }
     
+    // MARK: Internal methods
+    private func makeRow(value: String) -> UILabel {
+        let label: UILabel = {
+            $0.font = UIFont(name: Fonts.semiBold, size: textSize)
+            $0.adjustsFontSizeToFitWidth = true
+            $0.textColor = textColor
+            $0.textAlignment = .left
+            $0.text = value
+            $0.translatesAutoresizingMaskIntoConstraints = false
+            return $0
+        }(UILabel())
+        return label
+    }
+    
+    @objc private func toggleList() {
+        scrollView.contentOffset.y = .zero
+        contentView.isHidden.toggle()
+    }
+    
+    @objc private func rowSelected(_ sender: UITapGestureRecognizer) {
+        let point = sender.location(in: stackView)
+        let label = stackView.arrangedSubviews.first(where: {$0.frame.contains(point)}) as? UILabel
+        button.configureTitle(label?.text)
+        contentView.isHidden.toggle()
+        button.isSelected.toggle()
+    }
+    
+    // MARK: External Configuration
     func configureHeader(_ text: String?) {
         button.configureHeader(text)
     }
@@ -98,18 +131,17 @@ class DropDownView: UIView {
         for index in .zero..<list.count {
             let row = makeRow(value: list[index])
             row.tag = index
-            row.addTarget(nil, action: action, for: .touchUpInside)
             stackView.addArrangedSubview(row)
         }
     }
     
     func configureWith(backColor: UIColor) {
-        self.backColor = backColor
+        contentView.backgroundColor = backColor
         button.configureWith(backColor: backColor)
     }
     
     func configureWith(mainTextColor: UIColor) {
-        textColor = mainTextColor
+        stackView.arrangedSubviews.forEach({($0 as? UILabel)?.textColor = mainTextColor})
         button.configureWith(mainTextColor: mainTextColor)
     }
     
@@ -118,7 +150,7 @@ class DropDownView: UIView {
     }
     
     func configureWith(mainTextSize: CGFloat) {
-        textSize = mainTextSize
+        stackView.arrangedSubviews.forEach({($0 as? UILabel)?.font = UIFont(name: Fonts.semiBold, size: mainTextSize)})
         button.configureWith(mainTextSize: mainTextSize)
     }
     
@@ -127,34 +159,7 @@ class DropDownView: UIView {
     }
     
     func configureWith(cornerRadius: CGFloat) {
-        self.cornerRadius = cornerRadius
+        contentView.layer.cornerRadius = cornerRadius
         button.configureWith(cornerRadius: cornerRadius)
     }
-    
-    private func makeRow(value: String) -> UIButton {
-        let button: UIButton = {
-            $0.translatesAutoresizingMaskIntoConstraints = false
-            $0.contentHorizontalAlignment = .leading
-            $0.titleLabel?.font = UIFont(name: Fonts.semiBold, size: textSize)
-            $0.titleLabel?.adjustsFontSizeToFitWidth = true
-            $0.titleLabel?.textColor = textColor
-            $0.titleLabel?.textAlignment = .left
-            $0.setTitle(value, for: .normal)
-            $0.addTarget(self, action: #selector(rowSelected(_:)), for: .touchUpInside)
-            return $0
-        }(UIButton())
-        return button
-    }
-    
-    @objc private func toggleList() {
-        scrollView.contentOffset.y = .zero
-        contentView.isHidden.toggle()
-    }
-    
-    @objc private func rowSelected(_ sender: UIButton) {
-        button.configureTitle(sender.titleLabel?.text)
-        contentView.isHidden.toggle()
-        button.isSelected.toggle()
-    }
-    
 }

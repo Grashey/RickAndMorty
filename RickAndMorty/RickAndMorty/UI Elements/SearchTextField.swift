@@ -9,6 +9,8 @@ import UIKit
 
 class SearchTextField: UISearchTextField {
     
+    private var mainColor: UIColor = .rm_white
+    
     private let padding = UIEdgeInsets(top: 0, left: 17, bottom: 0, right: 17)
     private let imageView = UIImageView(image: UIImage(named: "magnifier"))
 
@@ -24,16 +26,21 @@ class SearchTextField: UISearchTextField {
         return bounds.inset(by: padding)
     }
     
+    override var intrinsicContentSize: CGSize {
+        CGSize(width: CGFloat.leastNormalMagnitude, height: UIConstants.offsideHeight)
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        font = UIFont(name: Fonts.bold, size: 12)
-        attributedPlaceholder = NSAttributedString(string: "Search by name", attributes: [.foregroundColor: UIColor.rm_white])
+        font = UIFont(name: Fonts.bold, size: UIConstants.textSize)
+        textColor = mainColor
+        attributedPlaceholder = NSAttributedString(string: "Search by name", attributes: [.foregroundColor: mainColor])
         backgroundColor = .rm_background
-        tintColor = .rm_white
+        tintColor = mainColor
         returnKeyType = .search
         layer.masksToBounds = true
-        layer.cornerRadius = 15
+        layer.cornerRadius = UIConstants.cornerRadius
         
         leftView = nil
         imageView.contentMode = .scaleAspectFit

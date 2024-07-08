@@ -9,8 +9,8 @@ import UIKit
 
 class RmButton: UIButton {
     
-    private let selectedColor: UIColor = .rm_green
-    private let deselectedColor: UIColor = .rm_background
+    private var selectedColor: UIColor = .rm_green
+    private var deselectedColor: UIColor = .rm_background
     private let selectedTitleColor: UIColor = .rm_black
     private let deselectedTitleColor: UIColor = .rm_white
     private let font = UIFont(name: Fonts.bold, size: UIConstants.textSize)
@@ -19,7 +19,7 @@ class RmButton: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        configure()
+        setup()
         self.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
     }
     
@@ -37,7 +37,7 @@ class RmButton: UIButton {
         }
     }
     
-    private func configure() {
+    private func setup() {
         self.layer.cornerRadius = 10
         self.setTitleColor(deselectedTitleColor, for: .normal)
         self.setTitleColor(selectedTitleColor, for: .selected)
@@ -48,5 +48,17 @@ class RmButton: UIButton {
     
     @objc private func buttonTapped() {
         isSelected.toggle()
+    }
+    
+    func configureColor(normal: UIColor, selected: UIColor) {
+        self.backgroundColor = isSelected ? selected : normal
+        selectedColor = selected
+        deselectedColor = normal
+    }
+    
+    func configureTitleColor(normal: UIColor, selected: UIColor) {
+        self.setTitleColor(normal, for: .normal)
+        self.setTitleColor(selected, for: .selected)
+        self.setTitleColor(isSelected ? normal : selected, for: .highlighted)
     }
 }
