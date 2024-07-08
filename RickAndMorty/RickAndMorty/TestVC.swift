@@ -41,6 +41,8 @@ class TestVC: UIViewController{
         for item in items {
             let button = RmButton()
             button.setTitle(item, for: .normal)
+            button.configureColor(normal: .red, selected: .yellow)
+            button.configureTitleColor(normal: .yellow, selected: .red)
             stack.addArrangedSubview(button)
         }
         
@@ -48,6 +50,8 @@ class TestVC: UIViewController{
         menu.configureTitle("All")
         menu.configureHeader("Last seen in:")
         menu.configure(list: items + items + items, with: #selector(menuTapped))
+        menu.configureWith(mainTextColor: .red)
+        menu.configureWith(secondaryTextColor: .yellow)
         menu.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(menu)
         
@@ -59,6 +63,7 @@ class TestVC: UIViewController{
         
         let contrItems = items[1...2]
         let control = SegmentControl(items: Array(contrItems))
+        control.configureTextColor(selected: .red, normal: .yellow)
         control.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(control)
         
