@@ -33,7 +33,6 @@ class FilterViewController: UIViewController {
         filterView.configureSearchTextField(delegate: self)
     }
     
-    
     @objc func filter() {
         closeFilters()
         view.endEditing(true)
@@ -93,5 +92,4 @@ extension FilterViewController: UISearchTextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         closeFilters()
     }
-    
 }

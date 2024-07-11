@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "header1.png",
+      "filename" : "arrowLeft.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "header1_x2.png",
+      "filename" : "arrowLeft_x2.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "header1_x3.png",
+      "filename" : "arrowLeft_x3.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
@@ -19,8 +19,5 @@
   "info" : {
     "author" : "xcode",
     "version" : 1
-  },
-  "properties" : {
-    "template-rendering-intent" : "original"
   }
 }
