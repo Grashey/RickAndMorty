@@ -45,10 +45,9 @@ class SegmentControl: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    init(items: [String]) {
+    init(itemsCount: Int) {
         self.init()
-        self.items = items
-        
+        items = Array(repeating: String(), count: itemsCount)
         addSubviews()
         addConstraints()
         itemsConstraints = makeConstraintsFor(items)
@@ -178,5 +177,12 @@ class SegmentControl: UIView {
     
     func configure(target: Any?, action: Selector) {
         buttons.forEach { $0.addTarget(target, action: action, for: .touchUpInside)}
+    }
+    
+    func configure(_ items: [String]) {
+        guard items.count == buttons.count else { return }
+        for index in .zero..<items.count {
+            buttons[index].setTitle(items[index], for: .normal)
+        }
     }
 }

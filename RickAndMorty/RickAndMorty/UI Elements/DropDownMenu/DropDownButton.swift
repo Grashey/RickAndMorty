@@ -31,7 +31,6 @@ class DropDownButton: UIButton {
     }(UILabel())
     
     private lazy var valueLabel: UILabel = {
-        $0.text = " "
         $0.font = UIFont(name: Fonts.semiBold, size: mainTextSize)
         $0.adjustsFontSizeToFitWidth = true
         $0.textColor = mainTextColor
@@ -44,6 +43,7 @@ class DropDownButton: UIButton {
         $0.tintColor = .rm_dropdownArrow
         $0.image = normalImage
         $0.contentMode = .scaleAspectFit
+        $0.setContentHuggingPriority(.required, for: .horizontal)
         $0.setContentCompressionResistancePriority(.required, for: .horizontal)
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
@@ -63,7 +63,6 @@ class DropDownButton: UIButton {
         
         layer.cornerRadius = cornerRadius
         backgroundColor = backColor
-        addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {
@@ -77,16 +76,20 @@ class DropDownButton: UIButton {
         }
     }
     
+    override var isHighlighted: Bool {
+        didSet {
+            valueLabel.textColor = isHighlighted ? mainTextColor.withAlphaComponent(0.6) : mainTextColor
+            headerLabel.textColor = isHighlighted ? secondaryTextColor.withAlphaComponent(0.6) : secondaryTextColor
+            iconView.tintColor = isHighlighted ? .rm_dropdownArrow.withAlphaComponent(0.6) : .rm_dropdownArrow
+        }
+    }
+    
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
         guard bounds.contains(point) else { return super.hitTest(point, with: event) }
         return self
     }
     
     // MARK: Internal methods
-    @objc private func buttonTapped() {
-        isSelected.toggle()
-    }
-    
     private func addSubviews() {
         contentView.addSubview(headerLabel)
         contentView.addSubview(valueLabel)
@@ -118,21 +121,9 @@ class DropDownButton: UIButton {
     func configureHeader(_ text: String?) {
         headerLabel.text = text
     }
-    
-    func configureTitle(_ text: String?) {
-        valueLabel.text = text
-    }
-    
-    func configureWith(backColor: UIColor) {
-        backgroundColor = backColor
-    }
-    
-    func configureWith(mainTextColor: UIColor) {
-        valueLabel.textColor = mainTextColor
-    }
-    
-    func configureWith(secondaryTextColor: UIColor) {
-        headerLabel.textColor = secondaryTextColor
+        
+    func configureWith(headerTextColor: UIColor) {
+        headerLabel.textColor = headerTextColor
     }
     
     func configureWith(mainTextSize: CGFloat) {
@@ -143,8 +134,12 @@ class DropDownButton: UIButton {
         headerLabel.font = UIFont(name: Fonts.semiBold, size: secondaryTextSize)
     }
     
-    func configureWith(cornerRadius: CGFloat) {
-        layer.cornerRadius = cornerRadius
+    override func setTitle(_ title: String?, for state: UIControl.State) {
+        valueLabel.text = title
+    }
+    
+    override func setTitleColor(_ color: UIColor?, for state: UIControl.State) {
+        valueLabel.textColor = color
     }
 
 }

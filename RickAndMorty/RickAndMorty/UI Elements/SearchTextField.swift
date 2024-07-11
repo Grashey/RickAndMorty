@@ -36,7 +36,7 @@ class SearchTextField: UISearchTextField {
         font = UIFont(name: Fonts.bold, size: UIConstants.textSize)
         textColor = mainColor
         attributedPlaceholder = NSAttributedString(string: "Search by name", attributes: [.foregroundColor: mainColor])
-        backgroundColor = .rm_background
+        backgroundColor = .rm_black
         tintColor = mainColor
         returnKeyType = .search
         layer.masksToBounds = true
