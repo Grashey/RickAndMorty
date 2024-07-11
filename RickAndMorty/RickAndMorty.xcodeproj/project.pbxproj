@@ -31,6 +31,7 @@
 		4A1AEC9E2C3DAB7300FB726A /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1AEC9D2C3DAB7300FB726A /* PaddingLabel.swift */; };
 		4AA0CF2A2C3E7D0400CE4C51 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CF292C3E7D0400CE4C51 /* HeaderView.swift */; };
 		4AA0CF2C2C3E7E8700CE4C51 /* HeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CF2B2C3E7E8700CE4C51 /* HeaderViewController.swift */; };
+		4AA0CF2F2C4021D000CE4C51 /* ExpandedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CF2E2C4021D000CE4C51 /* ExpandedButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		4A1AEC9D2C3DAB7300FB726A /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		4AA0CF292C3E7D0400CE4C51 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		4AA0CF2B2C3E7E8700CE4C51 /* HeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewController.swift; sourceTree = "<group>"; };
+		4AA0CF2E2C4021D000CE4C51 /* ExpandedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +153,7 @@
 				4A1AEC892C39A2B600FB726A /* SearchTextField.swift */,
 				4A1AEC8D2C3BD55900FB726A /* RmButton.swift */,
 				4A1AEC9D2C3DAB7300FB726A /* PaddingLabel.swift */,
+				4AA0CF2E2C4021D000CE4C51 /* ExpandedButton.swift */,
 			);
 			path = "UI Elements";
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A1AEC9A2C3D394200FB726A /* DropDownViewController.swift in Sources */,
+				4AA0CF2F2C4021D000CE4C51 /* ExpandedButton.swift in Sources */,
 				4A1AEC8E2C3BD55900FB726A /* RmButton.swift in Sources */,
 				4A1AEC962C3C0EC300FB726A /* FilterView.swift in Sources */,
 				4A1AEC762C37D8C100FB726A /* DropDownButton.swift in Sources */,

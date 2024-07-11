@@ -16,17 +16,17 @@ class HeaderView: UIView {
         return $0
     }(UIImageView())
     
-    private lazy var leftButton: UIButton = {
+    private lazy var leftButton: ExpandedButton = {
         $0.setImage(UIImage(named: "arrowLeft"), for: .normal)
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
-    }(UIButton())
+    }(ExpandedButton())
     
-    private lazy var rightButton: UIButton = {
+    private lazy var rightButton: ExpandedButton = {
         $0.setImage(UIImage(named: "arrowRight"), for: .normal)
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
-    }(UIButton())
+    }(ExpandedButton())
         
     private lazy var swipeLeftGR: UISwipeGestureRecognizer = {
         $0.direction = .left
