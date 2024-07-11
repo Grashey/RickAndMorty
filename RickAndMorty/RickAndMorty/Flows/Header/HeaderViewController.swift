@@ -26,10 +26,12 @@ class HeaderViewController: UIViewController {
     }
     
     @objc private func moveLeft() {
+        view.superview?.superview?.endEditing(true) // иерархия: filterView/container/headerView
         makeAnimation(toLeft: true)
     }
     
     @objc func moveRight() {
+        view.superview?.superview?.endEditing(true)
         makeAnimation(toLeft: false)
     }
     

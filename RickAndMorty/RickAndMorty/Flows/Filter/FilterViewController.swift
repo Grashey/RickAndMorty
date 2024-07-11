@@ -17,17 +17,15 @@ class FilterViewController: UIViewController {
     
     let listOfLocations = ["All", "Moscow", "London", "Paris", "New-York", "Rome", "Stanbul", "Tokyo"]
     let listOfAppearance = ["All", "Episode1", "Episode2", "Episode3", "Episode4", "Episode5", "Episode6", "Episode7"]
+    let buttonTitles = [Species.alien.rawValue, Species.human.rawValue, Species.robot.rawValue]
+    let segmentTitles = [Status.dead.rawValue, Status.alive.rawValue]
     
     override func viewDidLoad() {
         navigationController?.isNavigationBarHidden = true
         makeAndPlaceHeader()
         
-        let buttonTitles = [Species.alien.rawValue, Species.human.rawValue, Species.robot.rawValue]
         filterView.configureButtons(items: buttonTitles, action: #selector(filter))
-        
-        let segmentTitles = [Status.dead.rawValue, Status.alive.rawValue]
         filterView.configureSegmentControl(items: segmentTitles, action: #selector(filter))
-        
         filterView.configureLocationFilter(title: listOfLocations[0], action: #selector(showList))
         filterView.configureAppearanceFilter(title: listOfAppearance[0], action: #selector(showList))
         filterView.configureSearchTextField(delegate: self)
