@@ -32,6 +32,9 @@
 		4AA0CF2A2C3E7D0400CE4C51 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CF292C3E7D0400CE4C51 /* HeaderView.swift */; };
 		4AA0CF2C2C3E7E8700CE4C51 /* HeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CF2B2C3E7E8700CE4C51 /* HeaderViewController.swift */; };
 		4AA0CF2F2C4021D000CE4C51 /* ExpandedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CF2E2C4021D000CE4C51 /* ExpandedButton.swift */; };
+		4AA0CF322C411D2900CE4C51 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CF312C411D2900CE4C51 /* MainViewController.swift */; };
+		4AA0CF352C411D4E00CE4C51 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CF342C411D4E00CE4C51 /* MainView.swift */; };
+		4AA0CF372C41278F00CE4C51 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CF362C41278F00CE4C51 /* ResultsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +65,9 @@
 		4AA0CF292C3E7D0400CE4C51 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		4AA0CF2B2C3E7E8700CE4C51 /* HeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewController.swift; sourceTree = "<group>"; };
 		4AA0CF2E2C4021D000CE4C51 /* ExpandedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedButton.swift; sourceTree = "<group>"; };
+		4AA0CF312C411D2900CE4C51 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		4AA0CF342C411D4E00CE4C51 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		4AA0CF362C41278F00CE4C51 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,8 +167,10 @@
 		4A1AEC912C3C0E7C00FB726A /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				4AA0CF302C411D0800CE4C51 /* Main */,
 				4A1AEC922C3C0E9700FB726A /* Filter */,
 				4AA0CF2D2C3E844B00CE4C51 /* Header */,
+				4AA0CF362C41278F00CE4C51 /* ResultsViewController.swift */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -194,6 +202,15 @@
 				4AA0CF2B2C3E7E8700CE4C51 /* HeaderViewController.swift */,
 			);
 			path = Header;
+			sourceTree = "<group>";
+		};
+		4AA0CF302C411D0800CE4C51 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				4AA0CF312C411D2900CE4C51 /* MainViewController.swift */,
+				4AA0CF342C411D4E00CE4C51 /* MainView.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,6 +288,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A1AEC9A2C3D394200FB726A /* DropDownViewController.swift in Sources */,
+				4AA0CF352C411D4E00CE4C51 /* MainView.swift in Sources */,
 				4AA0CF2F2C4021D000CE4C51 /* ExpandedButton.swift in Sources */,
 				4A1AEC8E2C3BD55900FB726A /* RmButton.swift in Sources */,
 				4A1AEC962C3C0EC300FB726A /* FilterView.swift in Sources */,
@@ -280,6 +298,7 @@
 				4AA0CF2A2C3E7D0400CE4C51 /* HeaderView.swift in Sources */,
 				4A1AEC942C3C0EA700FB726A /* FilterViewController.swift in Sources */,
 				4A1AEC6A2C340DAF00FB726A /* Fonts.swift in Sources */,
+				4AA0CF372C41278F00CE4C51 /* ResultsViewController.swift in Sources */,
 				4A1AEC862C38329E00FB726A /* SegmentControl.swift in Sources */,
 				4A1AEC4E2C33F3F100FB726A /* AppDelegate.swift in Sources */,
 				4A1AEC642C3408F900FB726A /* Colors.swift in Sources */,
@@ -289,6 +308,7 @@
 				4A1AEC902C3BE43500FB726A /* UIConstants.swift in Sources */,
 				4A1AEC982C3C1A1C00FB726A /* FilterModel.swift in Sources */,
 				4AA0CF2C2C3E7E8700CE4C51 /* HeaderViewController.swift in Sources */,
+				4AA0CF322C411D2900CE4C51 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

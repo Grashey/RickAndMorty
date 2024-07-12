@@ -21,7 +21,6 @@ class FilterViewController: UIViewController {
     let segmentTitles = [Status.dead.rawValue, Status.alive.rawValue]
     
     override func viewDidLoad() {
-        navigationController?.isNavigationBarHidden = true
         makeAndPlaceHeader()
         
         filterView.configureButtons(items: buttonTitles, action: #selector(filter))
@@ -33,11 +32,9 @@ class FilterViewController: UIViewController {
     
     @objc func filter() {
         closeFilters()
-        view.endEditing(true)
     }
     
     @objc func showList(_ sender: UIButton)  {
-        view.endEditing(true)
         hideMenu()
         if sender.isSelected {
             let width = sender.frame.size.width
@@ -76,7 +73,6 @@ class FilterViewController: UIViewController {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         closeFilters()
-        view.endEditing(true)
     }
     
     private func closeFilters() {

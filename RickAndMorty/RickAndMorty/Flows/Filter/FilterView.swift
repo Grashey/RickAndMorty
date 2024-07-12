@@ -16,7 +16,6 @@ class FilterView: UIView {
     }(SearchTextField())
     
     private lazy var headerView: UIView = {
-        $0.backgroundColor = .white
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
     }(UIView())
@@ -93,6 +92,7 @@ class FilterView: UIView {
             locationFilter.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -UIConstants.offsetW),
             
             appearanceFilter.topAnchor.constraint(equalTo: locationFilter.bottomAnchor, constant: UIConstants.offsetH),
+            appearanceFilter.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -UIConstants.offsetW),
             appearanceFilter.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: UIConstants.offsetW),
             appearanceFilter.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -UIConstants.offsetW)
         ])
@@ -158,5 +158,12 @@ class FilterView: UIView {
             let status = button.isSelected
             button.isSelected = sender.isSelected ? false : status
         })
+    }
+    
+    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        if !searchField.bounds.contains(point) {
+            self.endEditing(true)
+        }
+       return super.hitTest(point, with: event)
     }
 }
