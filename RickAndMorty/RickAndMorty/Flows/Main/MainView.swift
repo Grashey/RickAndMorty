@@ -56,7 +56,7 @@ class MainView: UIView {
     private func addConstraints() {
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
             scrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
             
@@ -72,8 +72,7 @@ class MainView: UIView {
             bottomContainer.topAnchor.constraint(equalTo: topContainer.bottomAnchor),
             bottomContainer.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             bottomContainer.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            bottomContainer.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            bottomContainer.heightAnchor.constraint(equalToConstant: 100)
+            bottomContainer.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
         ])
     }
     
@@ -85,8 +84,12 @@ class MainView: UIView {
         }
     }
     
-    func configureScroll(refreshControl: UIRefreshControl?) {
+    func configureScrollView(refreshControl: UIRefreshControl?) {
         scrollView.refreshControl = refreshControl
+    }
+    
+    func configureScrollView(delegate: UIScrollViewDelegate) {
+        scrollView.delegate = delegate
     }
     
     // MARK: Internal methods

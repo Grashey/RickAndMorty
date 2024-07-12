@@ -23,8 +23,15 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         addContainer(type: .filter, child: filter)
         addContainer(type: .results, child: results)
-        mainView.configureScroll(refreshControl: refreshControl)
+        mainView.configureScrollView(refreshControl: refreshControl)
+        mainView.configureScrollView(delegate: self)
         navigationController?.isNavigationBarHidden = true
+        
+        results?.closeFilters = { [unowned self] in
+            filter?.closeFilters()
+            filter?.view.endEditing(true)
+        }
+
     }
     
     private func addContainer(type: MainView.Container, child: UIViewController?) {
@@ -42,5 +49,13 @@ class MainViewController: UIViewController {
     
     @objc private func refresh() {
         refreshControl.endRefreshing()
+    }
+    
+}
+
+extension MainViewController: UIScrollViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        filter?.view.endEditing(true)
     }
 }

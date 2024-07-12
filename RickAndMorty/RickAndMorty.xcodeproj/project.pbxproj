@@ -14,7 +14,6 @@
 		4A1AEC622C34055B00FB726A /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A1AEC612C34055B00FB726A /* Colors.xcassets */; };
 		4A1AEC642C3408F900FB726A /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1AEC632C3408F900FB726A /* Colors.swift */; };
 		4A1AEC6A2C340DAF00FB726A /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1AEC692C340DAF00FB726A /* Fonts.swift */; };
-		4A1AEC6F2C342D2900FB726A /* UITextView + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1AEC6E2C342D2900FB726A /* UITextView + Ext.swift */; };
 		4A1AEC762C37D8C100FB726A /* DropDownButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1AEC752C37D8C100FB726A /* DropDownButton.swift */; };
 		4A1AEC792C37F3AD00FB726A /* Montserrat.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4A1AEC782C37F3AD00FB726A /* Montserrat.ttf */; };
 		4A1AEC7D2C37F74D00FB726A /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4A1AEC7C2C37F74D00FB726A /* Montserrat-SemiBold.ttf */; };
@@ -35,6 +34,10 @@
 		4AA0CF322C411D2900CE4C51 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CF312C411D2900CE4C51 /* MainViewController.swift */; };
 		4AA0CF352C411D4E00CE4C51 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CF342C411D4E00CE4C51 /* MainView.swift */; };
 		4AA0CF372C41278F00CE4C51 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CF362C41278F00CE4C51 /* ResultsViewController.swift */; };
+		4AA0CF3A2C414E8E00CE4C51 /* CharacterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CF392C414E8E00CE4C51 /* CharacterModel.swift */; };
+		4AA0CF3C2C4151E800CE4C51 /* ResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CF3B2C4151E800CE4C51 /* ResultsTableViewCell.swift */; };
+		4AA0CF3E2C417F9A00CE4C51 /* ContentSizedTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CF3D2C417F9A00CE4C51 /* ContentSizedTableView.swift */; };
+		4AA0CF402C41837200CE4C51 /* InfoBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CF3F2C41837200CE4C51 /* InfoBlock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,7 +50,6 @@
 		4A1AEC612C34055B00FB726A /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		4A1AEC632C3408F900FB726A /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		4A1AEC692C340DAF00FB726A /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
-		4A1AEC6E2C342D2900FB726A /* UITextView + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView + Ext.swift"; sourceTree = "<group>"; };
 		4A1AEC752C37D8C100FB726A /* DropDownButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownButton.swift; sourceTree = "<group>"; };
 		4A1AEC782C37F3AD00FB726A /* Montserrat.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Montserrat.ttf; sourceTree = "<group>"; };
 		4A1AEC7C2C37F74D00FB726A /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -68,6 +70,10 @@
 		4AA0CF312C411D2900CE4C51 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		4AA0CF342C411D4E00CE4C51 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		4AA0CF362C41278F00CE4C51 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
+		4AA0CF392C414E8E00CE4C51 /* CharacterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModel.swift; sourceTree = "<group>"; };
+		4AA0CF3B2C4151E800CE4C51 /* ResultsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsTableViewCell.swift; sourceTree = "<group>"; };
+		4AA0CF3D2C417F9A00CE4C51 /* ContentSizedTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentSizedTableView.swift; sourceTree = "<group>"; };
+		4AA0CF3F2C41837200CE4C51 /* InfoBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoBlock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +108,6 @@
 			children = (
 				4A1AEC4D2C33F3F100FB726A /* AppDelegate.swift */,
 				4A1AEC4F2C33F3F100FB726A /* SceneDelegate.swift */,
-				4A1AEC702C342D6700FB726A /* Helpers */,
 				4A1AEC722C37D81100FB726A /* UI Elements */,
 				4A1AEC912C3C0E7C00FB726A /* Flows */,
 				4A1AEC682C340D8300FB726A /* Resources */,
@@ -142,14 +147,6 @@
 			path = Colors;
 			sourceTree = "<group>";
 		};
-		4A1AEC702C342D6700FB726A /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				4A1AEC6E2C342D2900FB726A /* UITextView + Ext.swift */,
-			);
-			path = Helpers;
-			sourceTree = "<group>";
-		};
 		4A1AEC722C37D81100FB726A /* UI Elements */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +157,7 @@
 				4A1AEC8D2C3BD55900FB726A /* RmButton.swift */,
 				4A1AEC9D2C3DAB7300FB726A /* PaddingLabel.swift */,
 				4AA0CF2E2C4021D000CE4C51 /* ExpandedButton.swift */,
+				4AA0CF3D2C417F9A00CE4C51 /* ContentSizedTableView.swift */,
 			);
 			path = "UI Elements";
 			sourceTree = "<group>";
@@ -170,7 +168,7 @@
 				4AA0CF302C411D0800CE4C51 /* Main */,
 				4A1AEC922C3C0E9700FB726A /* Filter */,
 				4AA0CF2D2C3E844B00CE4C51 /* Header */,
-				4AA0CF362C41278F00CE4C51 /* ResultsViewController.swift */,
+				4AA0CF382C414E3500CE4C51 /* Results */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -211,6 +209,17 @@
 				4AA0CF342C411D4E00CE4C51 /* MainView.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		4AA0CF382C414E3500CE4C51 /* Results */ = {
+			isa = PBXGroup;
+			children = (
+				4AA0CF392C414E8E00CE4C51 /* CharacterModel.swift */,
+				4AA0CF3B2C4151E800CE4C51 /* ResultsTableViewCell.swift */,
+				4AA0CF362C41278F00CE4C51 /* ResultsViewController.swift */,
+				4AA0CF3F2C41837200CE4C51 /* InfoBlock.swift */,
+			);
+			path = Results;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,11 +298,13 @@
 			files = (
 				4A1AEC9A2C3D394200FB726A /* DropDownViewController.swift in Sources */,
 				4AA0CF352C411D4E00CE4C51 /* MainView.swift in Sources */,
+				4AA0CF3C2C4151E800CE4C51 /* ResultsTableViewCell.swift in Sources */,
 				4AA0CF2F2C4021D000CE4C51 /* ExpandedButton.swift in Sources */,
 				4A1AEC8E2C3BD55900FB726A /* RmButton.swift in Sources */,
 				4A1AEC962C3C0EC300FB726A /* FilterView.swift in Sources */,
 				4A1AEC762C37D8C100FB726A /* DropDownButton.swift in Sources */,
-				4A1AEC6F2C342D2900FB726A /* UITextView + Ext.swift in Sources */,
+				4AA0CF3E2C417F9A00CE4C51 /* ContentSizedTableView.swift in Sources */,
+				4AA0CF3A2C414E8E00CE4C51 /* CharacterModel.swift in Sources */,
 				4A1AEC9C2C3DAA1300FB726A /* DropDownTableViewCell.swift in Sources */,
 				4AA0CF2A2C3E7D0400CE4C51 /* HeaderView.swift in Sources */,
 				4A1AEC942C3C0EA700FB726A /* FilterViewController.swift in Sources */,
@@ -305,6 +316,7 @@
 				4A1AEC9E2C3DAB7300FB726A /* PaddingLabel.swift in Sources */,
 				4A1AEC502C33F3F100FB726A /* SceneDelegate.swift in Sources */,
 				4A1AEC8A2C39A2B600FB726A /* SearchTextField.swift in Sources */,
+				4AA0CF402C41837200CE4C51 /* InfoBlock.swift in Sources */,
 				4A1AEC902C3BE43500FB726A /* UIConstants.swift in Sources */,
 				4A1AEC982C3C1A1C00FB726A /* FilterModel.swift in Sources */,
 				4AA0CF2C2C3E7E8700CE4C51 /* HeaderViewController.swift in Sources */,

@@ -59,13 +59,13 @@ class FilterViewController: UIViewController {
     }
     
     private func show(_ list: UIViewController) {
-        self.addChild(list)
-        self.view.addSubview(list.view)
-        list.didMove(toParent: self)
+        self.parent?.addChild(list)
+        self.view.superview?.superview?.addSubview(list.view)
+        list.didMove(toParent: self.parent)
     }
     
     private func hideMenu() {
-        guard let listOpened = self.children.first(where: {$0 .isKind(of: DropDownViewController.self)}) else { return }
+        guard let listOpened = self.parent?.children.first(where: {$0 .isKind(of: DropDownViewController.self)}) else { return }
         listOpened.willMove(toParent: nil)
         listOpened.view.removeFromSuperview()
         listOpened.removeFromParent()
@@ -75,7 +75,7 @@ class FilterViewController: UIViewController {
         closeFilters()
     }
     
-    private func closeFilters() {
+    func closeFilters() {
         hideMenu()
         filterView.deselectFilterButtons()
     }
