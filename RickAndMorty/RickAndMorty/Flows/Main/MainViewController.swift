@@ -7,6 +7,7 @@
 
 import UIKit
 
+// Контейнер для блоков экрана
 class MainViewController: UIViewController {
     
     private lazy var mainView = MainView()
@@ -27,11 +28,26 @@ class MainViewController: UIViewController {
         mainView.configureScrollView(delegate: self)
         navigationController?.isNavigationBarHidden = true
         
-        results?.closeFilters = { [unowned self] in
+        results?.closeOthers = { [unowned self] in
             filter?.closeFilters()
             filter?.view.endEditing(true)
         }
+        
+        // при более сложной навигации нужно будет создать слой навигации
+        results?.onCharacterDetails = { [unowned self] model in
+            let detailVC = CharacterViewController()
+            navigationController?.pushViewController(detailVC, animated: true)
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = true
+    }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.isNavigationBarHidden = false
     }
     
     private func addContainer(type: MainView.Container, child: UIViewController?) {

@@ -7,6 +7,7 @@
 
 import UIKit
 
+// Блок со всеми фильтрами и строкой поиска
 class FilterViewController: UIViewController {
     
     private lazy var filterView = FilterView()

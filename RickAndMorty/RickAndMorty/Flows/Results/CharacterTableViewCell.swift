@@ -1,5 +1,5 @@
 //
-//  ResultsTableViewCell.swift
+//  CharacterTableViewCell.swift
 //  RickAndMorty
 //
 //  Created by Aleksandr Fetisov on 12.07.2024.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ResultsTableViewCell: UITableViewCell {
+class CharacterTableViewCell: UITableViewCell {
     
     private let dotSide: CGFloat = 5
     private let headerTextSize: CGFloat = 24
@@ -16,6 +16,7 @@ class ResultsTableViewCell: UITableViewCell {
     private let majorTextColor: UIColor = .rm_white
     private let minorTextColor: UIColor = .rm_gray
     
+    // MARK: UI Elements
     private lazy var mainBackground: UIView = {
         $0.backgroundColor = .rm_background
         $0.layer.cornerRadius = UIConstants.cornerRadius
@@ -161,6 +162,7 @@ class ResultsTableViewCell: UITableViewCell {
         return $0
     }(UIStackView())
     
+    // MARK: Lifecycle
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -231,6 +233,7 @@ class ResultsTableViewCell: UITableViewCell {
         ])
     }
     
+    // MARK: Internal methods
     func configureWith(_ model: CharacterModel, tag: Int) {
         nameLabel.text = model.name
         statusLabel.text = model.status.rawValue
@@ -238,13 +241,14 @@ class ResultsTableViewCell: UITableViewCell {
         speciesLabel.text = model.species.rawValue
         locationValueLabel.text = model.lastLocation
         episodeValueLabel.text = model.firstEpisode
-        characterImageView.image = UIImage(data: model.image)
+        characterImageView.image = UIImage(data: model.imageData)
         detailsButton.tag = tag
+        readMoreButton.tag = tag
         
         let attributeString = NSMutableAttributedString(string: model.info)
         let range = NSRange(location: 0, length: model.info.count)
         let style = NSMutableParagraphStyle()
-        if let font = UIFont(name: Fonts.main, size: 12) {
+        if let font = UIFont(name: Fonts.main, size: UIConstants.textSize) {
             style.lineSpacing = (font.pointSize * 1.5) - font.lineHeight
             attributeString.addAttribute(.font, value: font, range: range)
         }
@@ -264,4 +268,3 @@ class ResultsTableViewCell: UITableViewCell {
     }
     
 }
-

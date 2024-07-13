@@ -7,6 +7,7 @@
 
 import UIKit
 
+// Блок с каруселью картинок
 class HeaderViewController: UIViewController {
 
     private lazy var headerView = HeaderView()
