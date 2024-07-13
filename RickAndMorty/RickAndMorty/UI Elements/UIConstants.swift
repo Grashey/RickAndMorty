@@ -15,4 +15,5 @@ enum UIConstants {
     static let textSize: CGFloat = 12
     static let offsetW: CGFloat = 24
     static let offsetH: CGFloat = 16
+    static let dropdownMenuHeight: CGFloat = 150
 }

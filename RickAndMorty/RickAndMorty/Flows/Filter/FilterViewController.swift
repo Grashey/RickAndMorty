@@ -41,7 +41,7 @@ class FilterViewController: UIViewController {
             let width = sender.frame.size.width
             let items = sender.tag == .zero ? listOfLocations : listOfAppearance
             let list = DropDownViewController(items: items)
-            list.view.frame = CGRect(origin: CGPoint(x: sender.frame.minX, y: sender.frame.maxY), size: CGSize(width: width, height: 150))
+            list.view.frame = CGRect(origin: CGPoint(x: sender.frame.minX, y: sender.frame.maxY), size: CGSize(width: width, height: UIConstants.dropdownMenuHeight))
             show(list)
             
             list.itemSelected = { [unowned self] item in

@@ -24,6 +24,7 @@ class ResultsViewController: UITableViewController {
         tableView.separatorStyle = .none
         tableView.isScrollEnabled = false
         tableView.register(CharacterTableViewCell.self, forCellReuseIdentifier: CharacterTableViewCell.description())
+        reloadView()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -52,6 +53,40 @@ class ResultsViewController: UITableViewController {
     @objc func readMore(_ sender: UIButton) {
         let model = viewModel.results[sender.tag]
         onCharacterDetails?(model)
+    }
+    
+    func reloadView() {
+        tableView.reloadData()
+        if viewModel.results.isEmpty {
+            addLabel()
+        } else {
+           removeLabel()
+        }
+    }
+    
+    private func addLabel() {
+        let label: UILabel = {
+            $0.text = "Wubba lubba dub dub"
+            $0.font = UIFont(name: Fonts.semiBold, size: UIConstants.textSize)
+            $0.textColor = .rm_white
+            $0.translatesAutoresizingMaskIntoConstraints = false
+            return $0
+        }(UILabel())
+        tableView.addSubview(label)
+        NSLayoutConstraint.activate([
+            label.topAnchor.constraint(equalTo: tableView.topAnchor),
+            label.centerXAnchor.constraint(equalTo: tableView.centerXAnchor)
+        ])
+    }
+    
+    private func removeLabel() {
+        if let label = view.subviews.last as? UILabel {
+            NSLayoutConstraint.deactivate([
+                label.topAnchor.constraint(equalTo: view.topAnchor, constant: 24),
+                label.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            ])
+            label.removeFromSuperview()
+        }
     }
 
 }

@@ -17,6 +17,7 @@ class ContentSizedTableView: UITableView {
     
     override var intrinsicContentSize: CGSize {
         layoutIfNeeded()
-        return CGSize(width: UIView.noIntrinsicMetric, height: contentSize.height)
+        // dropdownMenu на фрейме а его родитель на констрейнтах и нужно обеспечить минимальный размер вью позади меню, чтобы был респондер.
+        return CGSize(width: UIView.noIntrinsicMetric, height: contentSize.height == .zero ? UIConstants.dropdownMenuHeight : contentSize.height)
     }
 }
