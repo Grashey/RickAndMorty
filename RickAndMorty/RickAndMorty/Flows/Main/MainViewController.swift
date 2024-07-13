@@ -12,6 +12,7 @@ class MainViewController: UIViewController {
     
     private lazy var mainView = MainView()
     private var refreshControl: UIRefreshControl!
+    private let router = MainRouter()
     
     // MARK: Childs
     var filter: FilterViewController? = FilterViewController()
@@ -33,10 +34,9 @@ class MainViewController: UIViewController {
             filter?.view.endEditing(true)
         }
         
-        // при более сложной навигации нужно будет создать слой навигации
+        router.delegate = self
         results?.onCharacterDetails = { [unowned self] model in
-            let detailVC = CharacterViewController()
-            navigationController?.pushViewController(detailVC, animated: true)
+            router.onCharacterDetail()
         }
     }
     

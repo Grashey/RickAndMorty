@@ -43,6 +43,8 @@
 		4AA0CF462C426AC000CE4C51 /* CharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CF452C426AC000CE4C51 /* CharacterViewController.swift */; };
 		4AA0CF492C426BD400CE4C51 /* CharacterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CF482C426BD400CE4C51 /* CharacterViewModel.swift */; };
 		4AA0CF4B2C426CB100CE4C51 /* CharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CF4A2C426CB100CE4C51 /* CharacterView.swift */; };
+		4AA0CF4D2C427C4500CE4C51 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CF4C2C427C4500CE4C51 /* MainRouter.swift */; };
+		4AA0CF4F2C427DFB00CE4C51 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CF4E2C427DFB00CE4C51 /* Router.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +86,8 @@
 		4AA0CF452C426AC000CE4C51 /* CharacterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewController.swift; sourceTree = "<group>"; };
 		4AA0CF482C426BD400CE4C51 /* CharacterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewModel.swift; sourceTree = "<group>"; };
 		4AA0CF4A2C426CB100CE4C51 /* CharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterView.swift; sourceTree = "<group>"; };
+		4AA0CF4C2C427C4500CE4C51 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
+		4AA0CF4E2C427DFB00CE4C51 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +122,7 @@
 			children = (
 				4A1AEC4D2C33F3F100FB726A /* AppDelegate.swift */,
 				4A1AEC4F2C33F3F100FB726A /* SceneDelegate.swift */,
+				4AA0CF502C427F5000CE4C51 /* Helpers */,
 				4A1AEC722C37D81100FB726A /* UI Elements */,
 				4A1AEC912C3C0E7C00FB726A /* Flows */,
 				4A1AEC682C340D8300FB726A /* Resources */,
@@ -218,6 +223,7 @@
 			children = (
 				4AA0CF312C411D2900CE4C51 /* MainViewController.swift */,
 				4AA0CF342C411D4E00CE4C51 /* MainView.swift */,
+				4AA0CF4C2C427C4500CE4C51 /* MainRouter.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -243,6 +249,14 @@
 				4AA0CF452C426AC000CE4C51 /* CharacterViewController.swift */,
 			);
 			path = Character;
+			sourceTree = "<group>";
+		};
+		4AA0CF502C427F5000CE4C51 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				4AA0CF4E2C427DFB00CE4C51 /* Router.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -327,11 +341,13 @@
 				4A1AEC962C3C0EC300FB726A /* FilterView.swift in Sources */,
 				4AA0CF442C4267F700CE4C51 /* ResultsModel.swift in Sources */,
 				4A1AEC762C37D8C100FB726A /* DropDownButton.swift in Sources */,
+				4AA0CF4F2C427DFB00CE4C51 /* Router.swift in Sources */,
 				4AA0CF3E2C417F9A00CE4C51 /* ContentSizedTableView.swift in Sources */,
 				4AA0CF3A2C414E8E00CE4C51 /* CharacterModel.swift in Sources */,
 				4A1AEC9C2C3DAA1300FB726A /* DropDownTableViewCell.swift in Sources */,
 				4AA0CF2A2C3E7D0400CE4C51 /* HeaderView.swift in Sources */,
 				4AA0CF4B2C426CB100CE4C51 /* CharacterView.swift in Sources */,
+				4AA0CF4D2C427C4500CE4C51 /* MainRouter.swift in Sources */,
 				4A1AEC942C3C0EA700FB726A /* FilterViewController.swift in Sources */,
 				4A1AEC6A2C340DAF00FB726A /* Fonts.swift in Sources */,
 				4AA0CF372C41278F00CE4C51 /* ResultsViewController.swift in Sources */,
