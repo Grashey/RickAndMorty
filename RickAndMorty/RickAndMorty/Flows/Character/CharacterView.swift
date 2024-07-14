@@ -10,9 +10,7 @@ import UIKit
 class CharacterView: UIView {
         
     private let dotSide: CGFloat = 5
-    private let majorTextSize: CGFloat = 12
-    private let minorTextSize: CGFloat = 8
-    private let majorTextColor: UIColor = .rm_white
+    private let textColor: UIColor = .rm_white
     
     // MARK: UI Elements
     private lazy var characterImageView: UIImageView = {
@@ -24,8 +22,8 @@ class CharacterView: UIView {
     }(UIImageView())
     
     private lazy var speciesLabel: UILabel = {
-        $0.font = UIFont(name: Fonts.semiBold, size: majorTextSize)
-        $0.textColor = majorTextColor
+        $0.font = UIFont(name: Fonts.semiBold, size: UIConstants.majorFontSize)
+        $0.textColor = textColor
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
     }(UILabel())
@@ -37,8 +35,8 @@ class CharacterView: UIView {
     }(UIView())
     
     private lazy var statusLabel: UILabel = {
-        $0.font = UIFont(name: Fonts.semiBold, size: majorTextSize)
-        $0.textColor = majorTextColor
+        $0.font = UIFont(name: Fonts.semiBold, size: UIConstants.majorFontSize)
+        $0.textColor = textColor
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
     }(UILabel())
@@ -53,15 +51,15 @@ class CharacterView: UIView {
     
     private lazy var locationLabel: UILabel = {
         $0.text = "Last known location"
-        $0.font = UIFont(name: Fonts.semiBold, size: minorTextSize)
-        $0.textColor = majorTextColor
+        $0.font = UIFont(name: Fonts.semiBold, size: UIConstants.minorFontSize)
+        $0.textColor = textColor
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
     }(UILabel())
     
     private lazy var locationValueLabel: UILabel = {
-        $0.font = UIFont(name: Fonts.semiBold, size: majorTextSize)
-        $0.textColor = majorTextColor
+        $0.font = UIFont(name: Fonts.semiBold, size: UIConstants.majorFontSize)
+        $0.textColor = textColor
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
     }(UILabel())
@@ -74,15 +72,15 @@ class CharacterView: UIView {
     
     private lazy var episodeLabel: UILabel = {
         $0.text = "First seen in:"
-        $0.font = UIFont(name: Fonts.semiBold, size: minorTextSize)
-        $0.textColor = majorTextColor
+        $0.font = UIFont(name: Fonts.semiBold, size: UIConstants.minorFontSize)
+        $0.textColor = textColor
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
     }(UILabel())
     
     private lazy var episodeValueLabel: UILabel = {
-        $0.font = UIFont(name: Fonts.semiBold, size: majorTextSize)
-        $0.textColor = majorTextColor
+        $0.font = UIFont(name: Fonts.semiBold, size: UIConstants.majorFontSize)
+        $0.textColor = textColor
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
     }(UILabel())
@@ -150,9 +148,9 @@ class CharacterView: UIView {
             characterImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
             characterImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
             
-            mainStack.topAnchor.constraint(equalTo: characterImageView.bottomAnchor, constant: UIConstants.offsetW),
-            mainStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: UIConstants.offsetW),
-            mainStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -UIConstants.offsetW),
+            mainStack.topAnchor.constraint(equalTo: characterImageView.bottomAnchor, constant: UIConstants.majorPadding),
+            mainStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: UIConstants.majorPadding),
+            mainStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -UIConstants.majorPadding),
             
             statusView.heightAnchor.constraint(equalToConstant: dotSide),
             statusView.widthAnchor.constraint(equalTo: statusView.heightAnchor)
@@ -171,12 +169,12 @@ class CharacterView: UIView {
         let attributeString = NSMutableAttributedString(string: model.info)
         let range = NSRange(location: 0, length: model.info.count)
         let style = NSMutableParagraphStyle()
-        if let font = UIFont(name: Fonts.main, size: UIConstants.textSize) {
+        if let font = UIFont(name: Fonts.main, size: UIConstants.majorFontSize) {
             style.lineSpacing = (font.pointSize * 1.5) - font.lineHeight
             attributeString.addAttribute(.font, value: font, range: range)
         }
         attributeString.addAttribute(.paragraphStyle, value: style, range: range)
-        attributeString.addAttribute(.foregroundColor, value: UIColor.rm_white, range: range)
+        attributeString.addAttribute(.foregroundColor, value: textColor, range: range)
         infotextView.attributedText = attributeString
     }
     

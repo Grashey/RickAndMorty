@@ -42,10 +42,9 @@ class HeaderViewController: UIViewController {
         let currentIndex = imageIndex
         
         // крутим индексы по кругу влево или вправо
-        if toLeft {
-            imageIndex = (imageIndex == .zero) ? (images.count - 1) : (imageIndex - 1)
-        } else {
-            imageIndex = (imageIndex == images.count - 1) ? (.zero) : (imageIndex + 1)
+        switch toLeft {
+        case true: imageIndex = (imageIndex == .zero) ? (images.count - 1) : (imageIndex - 1)
+        case false: imageIndex = (imageIndex == images.count - 1) ? (.zero) : (imageIndex + 1)
         }
         
         let arriving = makeViewWith(imageIndex)

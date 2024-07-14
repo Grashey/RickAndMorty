@@ -10,7 +10,7 @@ import UIKit
 class DropDownTableViewCell: UITableViewCell {
     
     private lazy var label: PaddingLabel = {
-        $0.font = UIFont(name: Fonts.semiBold, size: 12)
+        $0.font = UIFont(name: Fonts.semiBold, size: UIConstants.majorFontSize)
         $0.textColor = .rm_white
         $0.adjustsFontSizeToFitWidth = true
         $0.translatesAutoresizingMaskIntoConstraints = false

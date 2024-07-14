@@ -17,13 +17,11 @@ class DropDownButton: UIButton {
     private var backColor = UIColor.rm_background
     private var mainTextColor = UIColor.rm_green
     private var secondaryTextColor = UIColor.rm_white
-    private var mainTextSize: CGFloat = UIConstants.textSize
-    private var secondaryTextSize: CGFloat = 8
     private var cornerRadius: CGFloat = UIConstants.cornerRadius
     
     // MARK: UI Elements
     private lazy var headerLabel: UILabel = {
-        $0.font = UIFont(name: Fonts.semiBold, size: secondaryTextSize)
+        $0.font = UIFont(name: Fonts.semiBold, size: UIConstants.minorFontSize)
         $0.textColor = secondaryTextColor
         $0.textAlignment = .left
         $0.translatesAutoresizingMaskIntoConstraints = false
@@ -31,7 +29,7 @@ class DropDownButton: UIButton {
     }(UILabel())
     
     private lazy var valueLabel: UILabel = {
-        $0.font = UIFont(name: Fonts.semiBold, size: mainTextSize)
+        $0.font = UIFont(name: Fonts.semiBold, size: UIConstants.majorFontSize)
         $0.adjustsFontSizeToFitWidth = true
         $0.textColor = mainTextColor
         $0.textAlignment = .left

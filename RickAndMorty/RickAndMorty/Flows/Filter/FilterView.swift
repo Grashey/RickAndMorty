@@ -72,29 +72,29 @@ class FilterView: UIView {
     private func addConstraints() {
         NSLayoutConstraint.activate([
             searchField.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
-            searchField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: UIConstants.offsetW),
-            searchField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -UIConstants.offsetW),
+            searchField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: UIConstants.majorPadding),
+            searchField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -UIConstants.majorPadding),
             
-            headerView.topAnchor.constraint(equalTo: searchField.bottomAnchor, constant: UIConstants.offsetH),
+            headerView.topAnchor.constraint(equalTo: searchField.bottomAnchor, constant: UIConstants.minorPadding),
             headerView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             headerView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             
-            segmentControl.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: UIConstants.offsetW),
-            segmentControl.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: UIConstants.offsetW),
-            segmentControl.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -UIConstants.offsetW),
+            segmentControl.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: UIConstants.majorPadding),
+            segmentControl.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: UIConstants.majorPadding),
+            segmentControl.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -UIConstants.majorPadding),
             
-            buttonsStack.topAnchor.constraint(equalTo: segmentControl.bottomAnchor, constant: UIConstants.offsetH),
-            buttonsStack.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: UIConstants.offsetW),
-            buttonsStack.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -UIConstants.offsetW),
+            buttonsStack.topAnchor.constraint(equalTo: segmentControl.bottomAnchor, constant: UIConstants.minorPadding),
+            buttonsStack.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: UIConstants.majorPadding),
+            buttonsStack.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -UIConstants.majorPadding),
             
-            locationFilter.topAnchor.constraint(equalTo: buttonsStack.bottomAnchor, constant: UIConstants.offsetH),
-            locationFilter.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: UIConstants.offsetW),
-            locationFilter.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -UIConstants.offsetW),
+            locationFilter.topAnchor.constraint(equalTo: buttonsStack.bottomAnchor, constant: UIConstants.minorPadding),
+            locationFilter.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: UIConstants.majorPadding),
+            locationFilter.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -UIConstants.majorPadding),
             
-            appearanceFilter.topAnchor.constraint(equalTo: locationFilter.bottomAnchor, constant: UIConstants.offsetH),
-            appearanceFilter.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -UIConstants.offsetW),
-            appearanceFilter.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: UIConstants.offsetW),
-            appearanceFilter.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -UIConstants.offsetW)
+            appearanceFilter.topAnchor.constraint(equalTo: locationFilter.bottomAnchor, constant: UIConstants.minorPadding),
+            appearanceFilter.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -UIConstants.majorPadding),
+            appearanceFilter.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: UIConstants.majorPadding),
+            appearanceFilter.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -UIConstants.majorPadding)
         ])
     }
     
@@ -135,20 +135,17 @@ class FilterView: UIView {
     }
     
     func configureHeader(view: UIView) {
-        fillContainer(parentView: headerView, childView: view)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        headerView.addSubview(view)
+        NSLayoutConstraint.activate([
+            view.topAnchor.constraint(equalTo: headerView.topAnchor),
+            view.bottomAnchor.constraint(equalTo: headerView.bottomAnchor),
+            view.leadingAnchor.constraint(equalTo: headerView.leadingAnchor),
+            view.trailingAnchor.constraint(equalTo: headerView.trailingAnchor)
+        ])
     }
         
     // MARK: Internal methods
-    private func fillContainer(parentView: UIView, childView: UIView) {
-        childView.translatesAutoresizingMaskIntoConstraints = false
-        parentView.addSubview(childView)
-        NSLayoutConstraint.activate([
-            childView.topAnchor.constraint(equalTo: parentView.topAnchor),
-            childView.bottomAnchor.constraint(equalTo: parentView.bottomAnchor),
-            childView.leadingAnchor.constraint(equalTo: parentView.leadingAnchor),
-            childView.trailingAnchor.constraint(equalTo: parentView.trailingAnchor)
-        ])
-    }
     
     @objc private func isSelectedToggle(_ sender: UIButton) {
         sender.isSelected.toggle()

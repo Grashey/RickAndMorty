@@ -33,7 +33,7 @@ class SearchTextField: UISearchTextField {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        font = UIFont(name: Fonts.bold, size: UIConstants.textSize)
+        font = UIFont(name: Fonts.bold, size: UIConstants.majorFontSize)
         textColor = mainColor
         attributedPlaceholder = NSAttributedString(string: "Search by name", attributes: [.foregroundColor: mainColor])
         backgroundColor = .rm_black

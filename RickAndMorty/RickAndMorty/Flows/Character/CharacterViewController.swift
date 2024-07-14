@@ -19,7 +19,7 @@ class CharacterViewController: UIViewController {
     override func viewDidLoad() {
         navigationController?.navigationBar.tintColor = .rm_green
         navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        navigationController?.navigationBar.titleTextAttributes = [.font: UIFont(name: Fonts.bold, size: 24) ?? .systemFont(ofSize: 24, weight: .bold),
+        navigationController?.navigationBar.titleTextAttributes = [.font: UIFont(name: Fonts.bold, size: UIConstants.headerFontSize) ?? .systemFont(ofSize: UIConstants.headerFontSize, weight: .bold),
                                                                    .foregroundColor: UIColor.rm_white]
         title = viewModel.model.name
         characterView.configureWith(viewModel.model)

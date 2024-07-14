@@ -66,10 +66,10 @@ class HeaderView: UIView {
             imageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             
             leftButton.centerYAnchor.constraint(equalTo: imageView.centerYAnchor),
-            leftButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: UIConstants.offsetW),
+            leftButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: UIConstants.majorPadding),
             
             rightButton.centerYAnchor.constraint(equalTo: imageView.centerYAnchor),
-            rightButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -UIConstants.offsetW)
+            rightButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -UIConstants.majorPadding)
         ])
     }
     

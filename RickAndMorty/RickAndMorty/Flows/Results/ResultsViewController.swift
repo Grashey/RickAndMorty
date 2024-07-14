@@ -57,24 +57,23 @@ class ResultsViewController: UITableViewController {
     
     func reloadView() {
         tableView.reloadData()
-        if viewModel.results.isEmpty {
-            addLabel()
-        } else {
-           removeLabel()
+        switch viewModel.results.isEmpty {
+        case true: addLabel()
+        case false: removeLabel()
         }
     }
     
     private func addLabel() {
         let label: UILabel = {
             $0.text = "Wubba lubba dub dub"
-            $0.font = UIFont(name: Fonts.semiBold, size: UIConstants.textSize)
+            $0.font = UIFont(name: Fonts.semiBold, size: UIConstants.majorFontSize)
             $0.textColor = .rm_white
             $0.translatesAutoresizingMaskIntoConstraints = false
             return $0
         }(UILabel())
         tableView.addSubview(label)
         NSLayoutConstraint.activate([
-            label.topAnchor.constraint(equalTo: tableView.topAnchor),
+            label.topAnchor.constraint(equalTo: tableView.topAnchor, constant: UIConstants.minorPadding),
             label.centerXAnchor.constraint(equalTo: tableView.centerXAnchor)
         ])
     }
@@ -82,7 +81,7 @@ class ResultsViewController: UITableViewController {
     private func removeLabel() {
         if let label = view.subviews.last as? UILabel {
             NSLayoutConstraint.deactivate([
-                label.topAnchor.constraint(equalTo: view.topAnchor, constant: 24),
+                label.topAnchor.constraint(equalTo: view.topAnchor, constant: UIConstants.minorPadding),
                 label.centerXAnchor.constraint(equalTo: view.centerXAnchor)
             ])
             label.removeFromSuperview()

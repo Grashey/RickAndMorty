@@ -20,7 +20,7 @@ class SegmentControl: UIView {
     var selectedIndex: Int = .zero
     
     private let buttonHeight: CGFloat = UIConstants.insideHeight
-    private var fontSize: CGFloat = UIConstants.textSize
+    private var fontSize: CGFloat = UIConstants.majorFontSize
     private let offsetW: CGFloat = 6
     private let offsetH: CGFloat = 6
     private let spacing: CGFloat = 3
@@ -145,7 +145,7 @@ class SegmentControl: UIView {
         selectedIndex = sender.tag
         reloadConstraints()
         updateLabels()
-        UIView.animate(withDuration: 0.25, delay: .zero, options: .curveEaseOut, animations: {
+        UIView.animate(withDuration: 0.25, delay: .zero, options: .curveEaseOut, animations: { [unowned self] in
             self.layoutIfNeeded()
         })
     }

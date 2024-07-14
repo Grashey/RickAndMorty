@@ -1,5 +1,5 @@
 //
-//  DropDownViewController.swift
+//  DropDownMenu.swift
 //  RickAndMorty
 //
 //  Created by Aleksandr Fetisov on 09.07.2024.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DropDownViewController: UITableViewController {
+class DropDownMenu: UITableViewController {
     
     private var items: [String] = []
     

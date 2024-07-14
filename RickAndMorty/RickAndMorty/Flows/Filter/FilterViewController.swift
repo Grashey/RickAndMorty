@@ -40,7 +40,7 @@ class FilterViewController: UIViewController {
         if sender.isSelected {
             let width = sender.frame.size.width
             let items = sender.tag == .zero ? listOfLocations : listOfAppearance
-            let list = DropDownViewController(items: items)
+            let list = DropDownMenu(items: items)
             list.view.frame = CGRect(origin: CGPoint(x: sender.frame.minX, y: sender.frame.maxY), size: CGSize(width: width, height: UIConstants.dropdownMenuHeight))
             show(list)
             
@@ -60,13 +60,13 @@ class FilterViewController: UIViewController {
     }
     
     private func show(_ list: UIViewController) {
-        self.parent?.addChild(list)
+        self.parent?.addChild(list) // открытое меню ниже границы текущего вью, кладем в Main чтобы открытое меню имело под собой респондер родителя
         self.view.superview?.superview?.addSubview(list.view)
         list.didMove(toParent: self.parent)
     }
     
     private func hideMenu() {
-        guard let listOpened = self.parent?.children.first(where: {$0 .isKind(of: DropDownViewController.self)}) else { return }
+        guard let listOpened = self.parent?.children.first(where: {$0 .isKind(of: DropDownMenu.self)}) else { return }
         listOpened.willMove(toParent: nil)
         listOpened.view.removeFromSuperview()
         listOpened.removeFromParent()

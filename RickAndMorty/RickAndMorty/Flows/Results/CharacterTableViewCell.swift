@@ -10,9 +10,7 @@ import UIKit
 class CharacterTableViewCell: UITableViewCell {
     
     private let dotSide: CGFloat = 5
-    private let headerTextSize: CGFloat = 24
-    private let majorTextSize: CGFloat = 12
-    private let minorTextSize: CGFloat = 8
+    private let imageHeight: CGFloat = 156
     private let majorTextColor: UIColor = .rm_white
     private let minorTextColor: UIColor = .rm_gray
     
@@ -34,7 +32,7 @@ class CharacterTableViewCell: UITableViewCell {
     }(UIImageView())
     
     private lazy var nameLabel: UILabel = {
-        $0.font = UIFont(name: Fonts.bold, size: headerTextSize)
+        $0.font = UIFont(name: Fonts.bold, size: UIConstants.headerFontSize)
         $0.textColor = majorTextColor
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
@@ -56,7 +54,7 @@ class CharacterTableViewCell: UITableViewCell {
     }(UIStackView())
     
     private lazy var speciesLabel: UILabel = {
-        $0.font = UIFont(name: Fonts.semiBold, size: majorTextSize)
+        $0.font = UIFont(name: Fonts.semiBold, size: UIConstants.majorFontSize)
         $0.textColor = majorTextColor
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
@@ -69,7 +67,7 @@ class CharacterTableViewCell: UITableViewCell {
     }(UIView())
     
     private lazy var statusLabel: UILabel = {
-        $0.font = UIFont(name: Fonts.semiBold, size: majorTextSize)
+        $0.font = UIFont(name: Fonts.semiBold, size: UIConstants.majorFontSize)
         $0.textColor = majorTextColor
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
@@ -85,14 +83,14 @@ class CharacterTableViewCell: UITableViewCell {
     
     private lazy var locationLabel: UILabel = {
         $0.text = "Last known location"
-        $0.font = UIFont(name: Fonts.semiBold, size: minorTextSize)
+        $0.font = UIFont(name: Fonts.semiBold, size: UIConstants.minorFontSize)
         $0.textColor = minorTextColor
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
     }(UILabel())
     
     private lazy var locationValueLabel: UILabel = {
-        $0.font = UIFont(name: Fonts.semiBold, size: majorTextSize)
+        $0.font = UIFont(name: Fonts.semiBold, size: UIConstants.majorFontSize)
         $0.textColor = majorTextColor
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
@@ -106,14 +104,14 @@ class CharacterTableViewCell: UITableViewCell {
     
     private lazy var episodeLabel: UILabel = {
         $0.text = "First seen in:"
-        $0.font = UIFont(name: Fonts.semiBold, size: minorTextSize)
+        $0.font = UIFont(name: Fonts.semiBold, size: UIConstants.minorFontSize)
         $0.textColor = minorTextColor
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
     }(UILabel())
     
     private lazy var episodeValueLabel: UILabel = {
-        $0.font = UIFont(name: Fonts.semiBold, size: majorTextSize)
+        $0.font = UIFont(name: Fonts.semiBold, size: UIConstants.majorFontSize)
         $0.textColor = majorTextColor
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
@@ -143,7 +141,7 @@ class CharacterTableViewCell: UITableViewCell {
         string.addAttribute(.foregroundColor, value: UIColor.rm_green, range: range)
         string.addAttribute(.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: range)
         string.addAttribute(.underlineColor, value: UIColor.rm_green, range: range)
-        string.addAttribute(.font, value: UIFont(name: Fonts.semiBold, size: majorTextSize) ?? .systemFont(ofSize: majorTextSize, weight: .semibold), range: range)
+        string.addAttribute(.font, value: UIFont(name: Fonts.semiBold, size: UIConstants.majorFontSize) ?? .systemFont(ofSize: UIConstants.majorFontSize, weight: .semibold), range: range)
         $0.setAttributedTitle(string, for: .normal)
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
@@ -205,26 +203,26 @@ class CharacterTableViewCell: UITableViewCell {
     
     private func addConstraints() {
         NSLayoutConstraint.activate([
-            mainBackground.topAnchor.constraint(equalTo: contentView.topAnchor, constant: UIConstants.offsetW/2),
-            mainBackground.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -UIConstants.offsetW/2),
-            mainBackground.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: UIConstants.offsetW),
-            mainBackground.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -UIConstants.offsetW),
+            mainBackground.topAnchor.constraint(equalTo: contentView.topAnchor, constant: UIConstants.majorPadding/2),
+            mainBackground.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -UIConstants.majorPadding/2),
+            mainBackground.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: UIConstants.majorPadding),
+            mainBackground.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -UIConstants.majorPadding),
             
-            characterImageView.heightAnchor.constraint(equalToConstant: 156),
+            characterImageView.heightAnchor.constraint(equalToConstant: imageHeight),
             characterImageView.topAnchor.constraint(equalTo: mainBackground.topAnchor),
             characterImageView.leadingAnchor.constraint(equalTo: mainBackground.leadingAnchor),
             characterImageView.trailingAnchor.constraint(equalTo: mainBackground.trailingAnchor),
             
-            mainStack.topAnchor.constraint(equalTo: characterImageView.bottomAnchor, constant: UIConstants.offsetW),
-            mainStack.bottomAnchor.constraint(equalTo: mainBackground.bottomAnchor, constant: -UIConstants.offsetW),
-            mainStack.leadingAnchor.constraint(equalTo: mainBackground.leadingAnchor, constant: UIConstants.offsetW),
-            mainStack.trailingAnchor.constraint(equalTo: mainBackground.trailingAnchor, constant: -UIConstants.offsetW),
+            mainStack.topAnchor.constraint(equalTo: characterImageView.bottomAnchor, constant: UIConstants.majorPadding),
+            mainStack.bottomAnchor.constraint(equalTo: mainBackground.bottomAnchor, constant: -UIConstants.majorPadding),
+            mainStack.leadingAnchor.constraint(equalTo: mainBackground.leadingAnchor, constant: UIConstants.majorPadding),
+            mainStack.trailingAnchor.constraint(equalTo: mainBackground.trailingAnchor, constant: -UIConstants.majorPadding),
             
             infotextView.topAnchor.constraint(equalTo: dropdownView.topAnchor),
             infotextView.leadingAnchor.constraint(equalTo: dropdownView.leadingAnchor),
             infotextView.trailingAnchor.constraint(equalTo: dropdownView.trailingAnchor),
             
-            readMoreButton.topAnchor.constraint(equalTo: infotextView.bottomAnchor, constant: 8),
+            readMoreButton.topAnchor.constraint(equalTo: infotextView.bottomAnchor, constant: UIConstants.minorPadding/2),
             readMoreButton.bottomAnchor.constraint(equalTo: dropdownView.bottomAnchor),
             readMoreButton.leadingAnchor.constraint(equalTo: dropdownView.leadingAnchor),
             
@@ -248,7 +246,7 @@ class CharacterTableViewCell: UITableViewCell {
         let attributeString = NSMutableAttributedString(string: model.info)
         let range = NSRange(location: 0, length: model.info.count)
         let style = NSMutableParagraphStyle()
-        if let font = UIFont(name: Fonts.main, size: UIConstants.textSize) {
+        if let font = UIFont(name: Fonts.main, size: UIConstants.majorFontSize) {
             style.lineSpacing = (font.pointSize * 1.5) - font.lineHeight
             attributeString.addAttribute(.font, value: font, range: range)
         }

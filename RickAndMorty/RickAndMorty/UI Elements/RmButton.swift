@@ -13,7 +13,7 @@ class RmButton: UIButton {
     private var deselectedColor: UIColor = .rm_background
     private let selectedTitleColor: UIColor = .rm_black
     private let deselectedTitleColor: UIColor = .rm_white
-    private let font = UIFont(name: Fonts.bold, size: UIConstants.textSize)
+    private let font = UIFont(name: Fonts.bold, size: UIConstants.majorFontSize)
     private let height: CGFloat = UIConstants.insideHeight
     
     override init(frame: CGRect) {
