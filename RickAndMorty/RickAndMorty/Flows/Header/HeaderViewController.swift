@@ -31,7 +31,7 @@ class HeaderViewController: UIViewController {
         makeAnimation(toLeft: true)
     }
     
-    @objc func moveRight() {
+    @objc private func moveRight() {
         view.superview?.superview?.endEditing(true)
         makeAnimation(toLeft: false)
     }

@@ -14,6 +14,7 @@ class FilterView: UIView {
     
     // MARK: UI Elements
     private lazy var searchField: SearchTextField = {
+        $0.autocorrectionType = .no
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
     }(SearchTextField())

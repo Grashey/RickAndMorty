@@ -59,6 +59,8 @@
 		4AA0CF712C452B4900CE4C51 /* ModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CF702C452B4900CE4C51 /* ModuleInput.swift */; };
 		4AA0CF732C452B6800CE4C51 /* DropDownInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CF722C452B6800CE4C51 /* DropDownInput.swift */; };
 		4AA0CF792C4536F600CE4C51 /* UIViewController + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CF782C4536F600CE4C51 /* UIViewController + Ext.swift */; };
+		4AA0CF7B2C45391A00CE4C51 /* FilterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CF7A2C45391A00CE4C51 /* FilterPresenter.swift */; };
+		4AA0CF7D2C454F1D00CE4C51 /* FilterFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CF7C2C454F1D00CE4C51 /* FilterFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -116,6 +118,8 @@
 		4AA0CF702C452B4900CE4C51 /* ModuleInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleInput.swift; sourceTree = "<group>"; };
 		4AA0CF722C452B6800CE4C51 /* DropDownInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownInput.swift; sourceTree = "<group>"; };
 		4AA0CF782C4536F600CE4C51 /* UIViewController + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Ext.swift"; sourceTree = "<group>"; };
+		4AA0CF7A2C45391A00CE4C51 /* FilterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPresenter.swift; sourceTree = "<group>"; };
+		4AA0CF7C2C454F1D00CE4C51 /* FilterFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,9 +225,11 @@
 		4A1AEC922C3C0E9700FB726A /* Filter */ = {
 			isa = PBXGroup;
 			children = (
+				4AA0CF7C2C454F1D00CE4C51 /* FilterFactory.swift */,
 				4AA0CF742C452F1C00CE4C51 /* View */,
 				4A1AEC972C3C1A1C00FB726A /* FilterModel.swift */,
 				4A1AEC932C3C0EA700FB726A /* FilterViewController.swift */,
+				4AA0CF7A2C45391A00CE4C51 /* FilterPresenter.swift */,
 			);
 			path = Filter;
 			sourceTree = "<group>";
@@ -427,6 +433,7 @@
 				4AA0CF712C452B4900CE4C51 /* ModuleInput.swift in Sources */,
 				4AA0CF442C4267F700CE4C51 /* ResultsModel.swift in Sources */,
 				4A1AEC762C37D8C100FB726A /* DropDownButton.swift in Sources */,
+				4AA0CF7D2C454F1D00CE4C51 /* FilterFactory.swift in Sources */,
 				4AA0CF4F2C427DFB00CE4C51 /* Router.swift in Sources */,
 				4AA0CF692C45280A00CE4C51 /* DropDownPresenter.swift in Sources */,
 				4AA0CF6B2C4529AE00CE4C51 /* DropDownListType.swift in Sources */,
@@ -459,6 +466,7 @@
 				4AA0CF492C426BD400CE4C51 /* CharacterViewModel.swift in Sources */,
 				4AA0CF2C2C3E7E8700CE4C51 /* HeaderViewController.swift in Sources */,
 				4AA0CF592C44275100CE4C51 /* Route.swift in Sources */,
+				4AA0CF7B2C45391A00CE4C51 /* FilterPresenter.swift in Sources */,
 				4AA0CF322C411D2900CE4C51 /* MainViewController.swift in Sources */,
 				4AA0CF5F2C442A7D00CE4C51 /* NetworkError.swift in Sources */,
 			);

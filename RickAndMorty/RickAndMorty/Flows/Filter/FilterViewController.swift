@@ -10,7 +10,12 @@ import UIKit
 // Блок со всеми фильтрами и строкой поиска
 class FilterViewController: UIViewController {
     
+    var presenter: iFilterPresenter!
+    
     private lazy var filterView = FilterView()
+    
+    //MARK: Callback
+    var filterChanged: ((FilterModel) -> Void)?
 
     override func loadView() {
         view = filterView
@@ -19,14 +24,25 @@ class FilterViewController: UIViewController {
     override func viewDidLoad() {
         makeAndPlaceHeader()
         
-        filterView.configureButtons(action: #selector(filter))
-        filterView.configureSegmentControl(action: #selector(filter))
-        filterView.configureFilters(title: "All", action: #selector(showList))
+        filterView.configureButtons(action: #selector(filterSpecies(_:)))
+        filterView.configureSegmentControl(action: #selector(filterStatus(_:)))
+        filterView.configureFilters(title: "All", action: #selector(showList(_:)))
         filterView.configureSearchTextField(delegate: self)
     }
     
-    @objc func filter() {
+    @objc private func filterStatus(_ sender: UIButton) {
         closeFilters()
+        guard let status = Status.init(rawValue: sender.titleLabel?.text ?? "") else { return }
+        presenter.filter.status = status
+    }
+    
+    @objc private func filterSpecies(_ sender: UIButton) {
+        guard let species = Species.init(rawValue: sender.titleLabel?.text ?? "") else { return }
+        if let index = presenter.filter.species.firstIndex(of: species) {
+            presenter.filter.species.remove(at: index)
+        } else {
+            presenter.filter.species.append(species)
+        }
     }
     
     @objc func showList(_ sender: UIButton)  {
@@ -40,6 +56,10 @@ class FilterViewController: UIViewController {
             show(list)
             
             list.itemSelected = { [unowned self] item in
+                switch listType {
+                case .location: presenter.filter.location = (item == "All") ? nil : item
+                case .episode: presenter.filter.appearance = (item == "All") ? nil : item
+                }
                 hideMenu()
                 sender.isSelected.toggle()
                 sender.setTitle(item, for: .normal)
@@ -82,4 +102,22 @@ extension FilterViewController: UISearchTextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         closeFilters()
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        guard presenter.filter.name != textField.text else { return false }
+        presenter.filter.name = textField.text
+        textField.endEditing(true)
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard presenter.filter.name != textField.text else { return }
+        presenter.filter.name = textField.text
+    }
+    
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        presenter.filter.name = nil
+        return true
+    }
+
 }

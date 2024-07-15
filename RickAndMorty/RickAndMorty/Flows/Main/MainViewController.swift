@@ -15,7 +15,7 @@ class MainViewController: UIViewController {
     private let router = MainRouter()
     
     // MARK: Childs
-    var filter: FilterViewController? = FilterViewController()
+    var filter: FilterViewController?
     var results: ResultsViewController? = ResultsViewController()
     
     override func loadView() {
@@ -23,11 +23,16 @@ class MainViewController: UIViewController {
     }
     
     override func viewDidLoad() {
+        filter = FilterFactory.build()
         addContainer(type: .filter, child: filter)
         addContainer(type: .results, child: results)
         mainView.configureScrollView(refreshControl: refreshControl)
         mainView.configureScrollView(delegate: self)
         navigationController?.isNavigationBarHidden = true
+        
+        filter?.filterChanged = { filter in
+            
+        }
         
         results?.closeOthers = { [unowned self] in
             filter?.closeFilters()
