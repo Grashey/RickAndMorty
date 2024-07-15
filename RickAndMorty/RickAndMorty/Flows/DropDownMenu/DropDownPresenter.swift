@@ -50,8 +50,17 @@ class DropDownPresenter: iDropDownPresenter {
                 await viewController?.reloadView()
                 currentPage += 1
             } catch {
-                print(error.localizedDescription)
+                await viewController?.showToast(messageFrom(error), success: false)
             }
         }
     }
+    
+    private func messageFrom(_ error: Error) -> String {
+        if let networkError = error as? NetworkError {
+            return networkError.message
+        } else {
+            return error.localizedDescription
+        }
+    }
+    
 }

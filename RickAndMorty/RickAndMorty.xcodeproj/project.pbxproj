@@ -58,6 +58,7 @@
 		4AA0CF6F2C452AC000CE4C51 /* DropDownMenuFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CF6E2C452AC000CE4C51 /* DropDownMenuFactory.swift */; };
 		4AA0CF712C452B4900CE4C51 /* ModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CF702C452B4900CE4C51 /* ModuleInput.swift */; };
 		4AA0CF732C452B6800CE4C51 /* DropDownInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CF722C452B6800CE4C51 /* DropDownInput.swift */; };
+		4AA0CF792C4536F600CE4C51 /* UIViewController + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CF782C4536F600CE4C51 /* UIViewController + Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -114,6 +115,7 @@
 		4AA0CF6E2C452AC000CE4C51 /* DropDownMenuFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownMenuFactory.swift; sourceTree = "<group>"; };
 		4AA0CF702C452B4900CE4C51 /* ModuleInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleInput.swift; sourceTree = "<group>"; };
 		4AA0CF722C452B6800CE4C51 /* DropDownInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownInput.swift; sourceTree = "<group>"; };
+		4AA0CF782C4536F600CE4C51 /* UIViewController + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -285,6 +287,7 @@
 			children = (
 				4AA0CF4E2C427DFB00CE4C51 /* Router.swift */,
 				4AA0CF702C452B4900CE4C51 /* ModuleInput.swift */,
+				4AA0CF782C4536F600CE4C51 /* UIViewController + Ext.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -432,6 +435,7 @@
 				4AA0CF3E2C417F9A00CE4C51 /* ContentSizedTableView.swift in Sources */,
 				4AA0CF3A2C414E8E00CE4C51 /* CharacterModel.swift in Sources */,
 				4A1AEC9C2C3DAA1300FB726A /* DropDownTableViewCell.swift in Sources */,
+				4AA0CF792C4536F600CE4C51 /* UIViewController + Ext.swift in Sources */,
 				4AA0CF2A2C3E7D0400CE4C51 /* HeaderView.swift in Sources */,
 				4AA0CF4B2C426CB100CE4C51 /* CharacterView.swift in Sources */,
 				4AA0CF6F2C452AC000CE4C51 /* DropDownMenuFactory.swift in Sources */,
