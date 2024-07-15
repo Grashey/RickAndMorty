@@ -9,6 +9,9 @@ import UIKit
 
 class FilterView: UIView {
     
+    private let speciesTitles = [Species.alien.rawValue, Species.human.rawValue, Species.robot.rawValue]
+    private let statusTitles = [Status.dead.rawValue, Status.alive.rawValue]
+    
     // MARK: UI Elements
     private lazy var searchField: SearchTextField = {
         $0.translatesAutoresizingMaskIntoConstraints = false
@@ -21,9 +24,10 @@ class FilterView: UIView {
     }(UIView())
     
     private lazy var segmentControl: SegmentControl = {
+        $0.configure(statusTitles)
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
-    }(SegmentControl(itemsCount: 2))
+    }(SegmentControl(itemsCount: statusTitles.count))
     
     private lazy var buttonsStack: UIStackView = {
         $0.axis = .horizontal
@@ -54,6 +58,12 @@ class FilterView: UIView {
         addSubviews()
         addConstraints()
         backgroundColor = .rm_black
+        
+        speciesTitles.forEach({ title in
+            let button = RmButton()
+            button.setTitle(title, for: .normal)
+            buttonsStack.addArrangedSubview(button)
+        })
     }
     
     required init?(coder: NSCoder) {
@@ -103,27 +113,19 @@ class FilterView: UIView {
         searchField.delegate = delegate
     }
     
-    func configureSegmentControl(items: [String], action: Selector) {
-        segmentControl.configure(items)
+    func configureSegmentControl(action: Selector) {
         segmentControl.configure(target: nil, action: action)
     }
     
-    func configureButtons(items: [String], action: Selector) {
-        items.forEach({ title in
-            let button = RmButton()
-            button.setTitle(title, for: .normal)
-            button.addTarget(nil, action: action, for: .touchUpInside)
-            buttonsStack.addArrangedSubview(button)
-        })
+    func configureButtons(action: Selector) {
+        buttonsStack.arrangedSubviews.forEach({ ($0 as? UIButton)?.addTarget(nil, action: action, for: .touchUpInside)})
     }
     
-    func configureLocationFilter(title: String, action: Selector) {
+    func configureFilters(title: String, action: Selector) {
         locationFilter.setTitle(title, for: .normal)
         locationFilter.addTarget(nil, action: #selector(isSelectedToggle(_:)), for: .touchUpInside)
         locationFilter.addTarget(nil, action: action, for: .touchUpInside)
-    }
-    
-    func configureAppearanceFilter(title: String, action: Selector) {
+        
         appearanceFilter.setTitle(title, for: .normal)
         appearanceFilter.addTarget(nil, action: #selector(isSelectedToggle(_:)), for: .touchUpInside)
         appearanceFilter.addTarget(nil, action: action, for: .touchUpInside)
@@ -146,7 +148,6 @@ class FilterView: UIView {
     }
         
     // MARK: Internal methods
-    
     @objc private func isSelectedToggle(_ sender: UIButton) {
         sender.isSelected.toggle()
         var buttons = [locationFilter, appearanceFilter]

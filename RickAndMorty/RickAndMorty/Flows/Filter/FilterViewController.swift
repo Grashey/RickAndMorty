@@ -16,18 +16,12 @@ class FilterViewController: UIViewController {
         view = filterView
     }
     
-    let listOfLocations = ["All", "Moscow", "London", "Paris", "New-York", "Rome", "Stanbul", "Tokyo"]
-    let listOfAppearance = ["All", "Episode1", "Episode2", "Episode3", "Episode4", "Episode5", "Episode6", "Episode7"]
-    let buttonTitles = [Species.alien.rawValue, Species.human.rawValue, Species.robot.rawValue]
-    let segmentTitles = [Status.dead.rawValue, Status.alive.rawValue]
-    
     override func viewDidLoad() {
         makeAndPlaceHeader()
         
-        filterView.configureButtons(items: buttonTitles, action: #selector(filter))
-        filterView.configureSegmentControl(items: segmentTitles, action: #selector(filter))
-        filterView.configureLocationFilter(title: listOfLocations[0], action: #selector(showList))
-        filterView.configureAppearanceFilter(title: listOfAppearance[0], action: #selector(showList))
+        filterView.configureButtons(action: #selector(filter))
+        filterView.configureSegmentControl(action: #selector(filter))
+        filterView.configureFilters(title: "All", action: #selector(showList))
         filterView.configureSearchTextField(delegate: self)
     }
     
@@ -39,8 +33,9 @@ class FilterViewController: UIViewController {
         hideMenu()
         if sender.isSelected {
             let width = sender.frame.size.width
-            let items = sender.tag == .zero ? listOfLocations : listOfAppearance
-            let list = DropDownMenu(items: items)
+            let listType: DropDownListType = sender.tag == .zero ? .location : .episode
+            let listInput = DropDownInput(listType: listType)
+            let list = DropDownMenuFactory.build(input: listInput)
             list.view.frame = CGRect(origin: CGPoint(x: sender.frame.minX, y: sender.frame.maxY), size: CGSize(width: width, height: UIConstants.dropdownMenuHeight))
             show(list)
             

@@ -9,23 +9,10 @@ import UIKit
 
 class DropDownMenu: UITableViewController {
     
-    private var items: [String] = []
+    var presenter: iDropDownPresenter!
     
     // MARK: Callback
     var itemSelected: ((String) -> Void)?
-    
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    }
-    
-    convenience init(items: [String]) {
-        self.init(nibName: nil, bundle: nil)
-        self.items = items
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     override func viewDidLoad() {
         tableView.register(DropDownTableViewCell.self, forCellReuseIdentifier: DropDownTableViewCell.description())
@@ -35,20 +22,31 @@ class DropDownMenu: UITableViewController {
         view.layer.cornerRadius = UIConstants.cornerRadius
         view.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
         tableView.layer.masksToBounds = true
+        
+        presenter.getList()
     }
     
+    func reloadView() {
+        tableView.reloadData()
+    }
+        
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        items.count
+        presenter.items.count
     }
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: DropDownTableViewCell.description(), for: indexPath)
-        (cell as? DropDownTableViewCell)?.configureWith(items[indexPath.row])
+        (cell as? DropDownTableViewCell)?.configureWith(presenter.items[indexPath.row])
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        itemSelected?(items[indexPath.row])
+        itemSelected?(presenter.items[indexPath.row])
     }
     
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row > presenter.items.count - 2 {
+            presenter.getList()
+        }
+    }
 }

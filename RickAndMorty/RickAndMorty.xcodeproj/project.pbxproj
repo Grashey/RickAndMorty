@@ -45,6 +45,19 @@
 		4AA0CF4B2C426CB100CE4C51 /* CharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CF4A2C426CB100CE4C51 /* CharacterView.swift */; };
 		4AA0CF4D2C427C4500CE4C51 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CF4C2C427C4500CE4C51 /* MainRouter.swift */; };
 		4AA0CF4F2C427DFB00CE4C51 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CF4E2C427DFB00CE4C51 /* Router.swift */; };
+		4AA0CF572C44250600CE4C51 /* ListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CF562C44250600CE4C51 /* ListResponse.swift */; };
+		4AA0CF592C44275100CE4C51 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CF582C44275100CE4C51 /* Route.swift */; };
+		4AA0CF5B2C44282000CE4C51 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CF5A2C44282000CE4C51 /* Api.swift */; };
+		4AA0CF5D2C442A5400CE4C51 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CF5C2C442A5400CE4C51 /* HTTPClient.swift */; };
+		4AA0CF5F2C442A7D00CE4C51 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CF5E2C442A7D00CE4C51 /* NetworkError.swift */; };
+		4AA0CF612C442B9400CE4C51 /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CF602C442B9400CE4C51 /* RequestBuilder.swift */; };
+		4AA0CF632C442C9600CE4C51 /* DropDownNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CF622C442C9600CE4C51 /* DropDownNetworkService.swift */; };
+		4AA0CF652C442DB300CE4C51 /* DropDownRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CF642C442DB300CE4C51 /* DropDownRoute.swift */; };
+		4AA0CF692C45280A00CE4C51 /* DropDownPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CF682C45280A00CE4C51 /* DropDownPresenter.swift */; };
+		4AA0CF6B2C4529AE00CE4C51 /* DropDownListType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CF6A2C4529AE00CE4C51 /* DropDownListType.swift */; };
+		4AA0CF6F2C452AC000CE4C51 /* DropDownMenuFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CF6E2C452AC000CE4C51 /* DropDownMenuFactory.swift */; };
+		4AA0CF712C452B4900CE4C51 /* ModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CF702C452B4900CE4C51 /* ModuleInput.swift */; };
+		4AA0CF732C452B6800CE4C51 /* DropDownInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CF722C452B6800CE4C51 /* DropDownInput.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +101,19 @@
 		4AA0CF4A2C426CB100CE4C51 /* CharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterView.swift; sourceTree = "<group>"; };
 		4AA0CF4C2C427C4500CE4C51 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
 		4AA0CF4E2C427DFB00CE4C51 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		4AA0CF562C44250600CE4C51 /* ListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListResponse.swift; sourceTree = "<group>"; };
+		4AA0CF582C44275100CE4C51 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
+		4AA0CF5A2C44282000CE4C51 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		4AA0CF5C2C442A5400CE4C51 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		4AA0CF5E2C442A7D00CE4C51 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		4AA0CF602C442B9400CE4C51 /* RequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
+		4AA0CF622C442C9600CE4C51 /* DropDownNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownNetworkService.swift; sourceTree = "<group>"; };
+		4AA0CF642C442DB300CE4C51 /* DropDownRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownRoute.swift; sourceTree = "<group>"; };
+		4AA0CF682C45280A00CE4C51 /* DropDownPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownPresenter.swift; sourceTree = "<group>"; };
+		4AA0CF6A2C4529AE00CE4C51 /* DropDownListType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownListType.swift; sourceTree = "<group>"; };
+		4AA0CF6E2C452AC000CE4C51 /* DropDownMenuFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownMenuFactory.swift; sourceTree = "<group>"; };
+		4AA0CF702C452B4900CE4C51 /* ModuleInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleInput.swift; sourceTree = "<group>"; };
+		4AA0CF722C452B6800CE4C51 /* DropDownInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownInput.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +148,7 @@
 			children = (
 				4A1AEC4D2C33F3F100FB726A /* AppDelegate.swift */,
 				4A1AEC4F2C33F3F100FB726A /* SceneDelegate.swift */,
+				4AA0CF512C4420CD00CE4C51 /* Network */,
 				4AA0CF502C427F5000CE4C51 /* Helpers */,
 				4A1AEC722C37D81100FB726A /* UI Elements */,
 				4A1AEC912C3C0E7C00FB726A /* Flows */,
@@ -166,7 +193,6 @@
 			isa = PBXGroup;
 			children = (
 				4A1AEC8F2C3BE43500FB726A /* UIConstants.swift */,
-				4A1AEC9F2C3DB80500FB726A /* DropDownMenu */,
 				4A1AEC852C38329E00FB726A /* SegmentControl.swift */,
 				4A1AEC892C39A2B600FB726A /* SearchTextField.swift */,
 				4A1AEC8D2C3BD55900FB726A /* RmButton.swift */,
@@ -180,6 +206,7 @@
 		4A1AEC912C3C0E7C00FB726A /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				4A1AEC9F2C3DB80500FB726A /* DropDownMenu */,
 				4AA0CF302C411D0800CE4C51 /* Main */,
 				4A1AEC922C3C0E9700FB726A /* Filter */,
 				4AA0CF2D2C3E844B00CE4C51 /* Header */,
@@ -192,7 +219,7 @@
 		4A1AEC922C3C0E9700FB726A /* Filter */ = {
 			isa = PBXGroup;
 			children = (
-				4A1AEC952C3C0EC300FB726A /* FilterView.swift */,
+				4AA0CF742C452F1C00CE4C51 /* View */,
 				4A1AEC972C3C1A1C00FB726A /* FilterModel.swift */,
 				4A1AEC932C3C0EA700FB726A /* FilterViewController.swift */,
 			);
@@ -202,9 +229,11 @@
 		4A1AEC9F2C3DB80500FB726A /* DropDownMenu */ = {
 			isa = PBXGroup;
 			children = (
-				4A1AEC752C37D8C100FB726A /* DropDownButton.swift */,
+				4AA0CF6D2C452A7800CE4C51 /* Factory */,
+				4AA0CF6C2C452A6A00CE4C51 /* View */,
+				4AA0CF752C452F8A00CE4C51 /* Network */,
 				4A1AEC992C3D394200FB726A /* DropDownMenu.swift */,
-				4A1AEC9B2C3DAA1300FB726A /* DropDownTableViewCell.swift */,
+				4AA0CF682C45280A00CE4C51 /* DropDownPresenter.swift */,
 			);
 			path = DropDownMenu;
 			sourceTree = "<group>";
@@ -255,8 +284,58 @@
 			isa = PBXGroup;
 			children = (
 				4AA0CF4E2C427DFB00CE4C51 /* Router.swift */,
+				4AA0CF702C452B4900CE4C51 /* ModuleInput.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		4AA0CF512C4420CD00CE4C51 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				4AA0CF582C44275100CE4C51 /* Route.swift */,
+				4AA0CF5A2C44282000CE4C51 /* Api.swift */,
+				4AA0CF5C2C442A5400CE4C51 /* HTTPClient.swift */,
+				4AA0CF602C442B9400CE4C51 /* RequestBuilder.swift */,
+				4AA0CF5E2C442A7D00CE4C51 /* NetworkError.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		4AA0CF6C2C452A6A00CE4C51 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4A1AEC9B2C3DAA1300FB726A /* DropDownTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4AA0CF6D2C452A7800CE4C51 /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				4AA0CF6E2C452AC000CE4C51 /* DropDownMenuFactory.swift */,
+				4AA0CF722C452B6800CE4C51 /* DropDownInput.swift */,
+				4AA0CF6A2C4529AE00CE4C51 /* DropDownListType.swift */,
+			);
+			path = Factory;
+			sourceTree = "<group>";
+		};
+		4AA0CF742C452F1C00CE4C51 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4A1AEC752C37D8C100FB726A /* DropDownButton.swift */,
+				4A1AEC952C3C0EC300FB726A /* FilterView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4AA0CF752C452F8A00CE4C51 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				4AA0CF622C442C9600CE4C51 /* DropDownNetworkService.swift */,
+				4AA0CF562C44250600CE4C51 /* ListResponse.swift */,
+				4AA0CF642C442DB300CE4C51 /* DropDownRoute.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -336,18 +415,29 @@
 				4A1AEC9A2C3D394200FB726A /* DropDownMenu.swift in Sources */,
 				4AA0CF352C411D4E00CE4C51 /* MainView.swift in Sources */,
 				4AA0CF3C2C4151E800CE4C51 /* CharacterTableViewCell.swift in Sources */,
+				4AA0CF612C442B9400CE4C51 /* RequestBuilder.swift in Sources */,
 				4AA0CF2F2C4021D000CE4C51 /* ExpandedButton.swift in Sources */,
+				4AA0CF572C44250600CE4C51 /* ListResponse.swift in Sources */,
 				4A1AEC8E2C3BD55900FB726A /* RmButton.swift in Sources */,
+				4AA0CF732C452B6800CE4C51 /* DropDownInput.swift in Sources */,
 				4A1AEC962C3C0EC300FB726A /* FilterView.swift in Sources */,
+				4AA0CF712C452B4900CE4C51 /* ModuleInput.swift in Sources */,
 				4AA0CF442C4267F700CE4C51 /* ResultsModel.swift in Sources */,
 				4A1AEC762C37D8C100FB726A /* DropDownButton.swift in Sources */,
 				4AA0CF4F2C427DFB00CE4C51 /* Router.swift in Sources */,
+				4AA0CF692C45280A00CE4C51 /* DropDownPresenter.swift in Sources */,
+				4AA0CF6B2C4529AE00CE4C51 /* DropDownListType.swift in Sources */,
+				4AA0CF5B2C44282000CE4C51 /* Api.swift in Sources */,
+				4AA0CF652C442DB300CE4C51 /* DropDownRoute.swift in Sources */,
 				4AA0CF3E2C417F9A00CE4C51 /* ContentSizedTableView.swift in Sources */,
 				4AA0CF3A2C414E8E00CE4C51 /* CharacterModel.swift in Sources */,
 				4A1AEC9C2C3DAA1300FB726A /* DropDownTableViewCell.swift in Sources */,
 				4AA0CF2A2C3E7D0400CE4C51 /* HeaderView.swift in Sources */,
 				4AA0CF4B2C426CB100CE4C51 /* CharacterView.swift in Sources */,
+				4AA0CF6F2C452AC000CE4C51 /* DropDownMenuFactory.swift in Sources */,
 				4AA0CF4D2C427C4500CE4C51 /* MainRouter.swift in Sources */,
+				4AA0CF632C442C9600CE4C51 /* DropDownNetworkService.swift in Sources */,
+				4AA0CF5D2C442A5400CE4C51 /* HTTPClient.swift in Sources */,
 				4A1AEC942C3C0EA700FB726A /* FilterViewController.swift in Sources */,
 				4A1AEC6A2C340DAF00FB726A /* Fonts.swift in Sources */,
 				4AA0CF372C41278F00CE4C51 /* ResultsViewController.swift in Sources */,
@@ -364,7 +454,9 @@
 				4AA0CF422C4267E700CE4C51 /* ResultsViewModel.swift in Sources */,
 				4AA0CF492C426BD400CE4C51 /* CharacterViewModel.swift in Sources */,
 				4AA0CF2C2C3E7E8700CE4C51 /* HeaderViewController.swift in Sources */,
+				4AA0CF592C44275100CE4C51 /* Route.swift in Sources */,
 				4AA0CF322C411D2900CE4C51 /* MainViewController.swift in Sources */,
+				4AA0CF5F2C442A7D00CE4C51 /* NetworkError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
