@@ -164,7 +164,9 @@ class CharacterView: UIView {
         speciesLabel.text = model.species.rawValue
         locationValueLabel.text = model.lastLocation
         episodeValueLabel.text = model.firstEpisode
-        characterImageView.image = UIImage(data: model.imageData)
+        if let data = model.imageData {
+            characterImageView.image = UIImage(data: data)
+        }
         
         let attributeString = NSMutableAttributedString(string: model.info)
         let range = NSRange(location: 0, length: model.info.count)

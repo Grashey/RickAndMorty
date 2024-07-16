@@ -60,11 +60,13 @@ class FilterView: UIView {
         addConstraints()
         backgroundColor = .rm_black
         
-        speciesTitles.forEach({ title in
+        for index in .zero..<speciesTitles.count {
             let button = RmButton()
-            button.setTitle(title, for: .normal)
+            button.tag = index
+            button.setTitle(speciesTitles[index], for: .normal)
+            button.addTarget(self, action: #selector(isSelectedToggle(_:)), for: .touchUpInside)
             buttonsStack.addArrangedSubview(button)
-        })
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -150,8 +152,19 @@ class FilterView: UIView {
         
     // MARK: Internal methods
     @objc private func isSelectedToggle(_ sender: UIButton) {
+        var dropDownButtons: [UIButton] = [locationFilter, appearanceFilter]
+        var speciesButtons = buttonsStack.arrangedSubviews.map{$0 as! UIButton}
+        var buttons: [UIButton]
+        
+        if dropDownButtons.contains(sender) {
+            buttons = dropDownButtons
+        } else if speciesButtons.contains(sender) {
+            buttons = speciesButtons
+        } else {
+            return
+        }
+        
         sender.isSelected.toggle()
-        var buttons = [locationFilter, appearanceFilter]
         buttons.remove(at: sender.tag)
         buttons.forEach({ button in
             let status = button.isSelected
@@ -165,4 +178,5 @@ class FilterView: UIView {
         }
        return super.hitTest(point, with: event)
     }
+    
 }

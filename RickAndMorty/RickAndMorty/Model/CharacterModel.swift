@@ -14,5 +14,5 @@ struct CharacterModel {
     let lastLocation: String
     let firstEpisode: String
     let info: String
-    let imageData: Data
+    let imageData: Data?
 }

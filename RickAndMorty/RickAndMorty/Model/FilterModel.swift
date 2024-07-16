@@ -10,7 +10,7 @@ import Foundation
 struct FilterModel {
     var name: String?
     var status: Status
-    var species: [Species]
+    var species: Species?
     var location: String?
     var appearance: String?
 }

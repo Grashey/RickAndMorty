@@ -239,7 +239,9 @@ class CharacterTableViewCell: UITableViewCell {
         speciesLabel.text = model.species.rawValue
         locationValueLabel.text = model.lastLocation
         episodeValueLabel.text = model.firstEpisode
-        characterImageView.image = UIImage(data: model.imageData)
+        if let data = model.imageData {
+            characterImageView.image = UIImage(data: data)
+        }
         detailsButton.tag = tag
         readMoreButton.tag = tag
         

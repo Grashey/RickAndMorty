@@ -20,7 +20,6 @@ class RmButton: UIButton {
         super.init(frame: frame)
         
         setup()
-        self.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {
@@ -44,10 +43,6 @@ class RmButton: UIButton {
         self.setTitleColor(isSelected ? deselectedTitleColor : selectedTitleColor, for: .highlighted)
         self.titleLabel?.font = font
         self.isSelected = false
-    }
-    
-    @objc private func buttonTapped() {
-        isSelected.toggle()
     }
     
     func configureColor(normal: UIColor, selected: UIColor) {

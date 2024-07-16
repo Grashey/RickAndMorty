@@ -38,10 +38,10 @@ class FilterViewController: UIViewController {
     
     @objc private func filterSpecies(_ sender: UIButton) {
         guard let species = Species.init(rawValue: sender.titleLabel?.text ?? "") else { return }
-        if let index = presenter.filter.species.firstIndex(of: species) {
-            presenter.filter.species.remove(at: index)
+        if presenter.filter.species != species {
+            presenter.filter.species = species
         } else {
-            presenter.filter.species.append(species)
+            presenter.filter.species = nil
         }
     }
     

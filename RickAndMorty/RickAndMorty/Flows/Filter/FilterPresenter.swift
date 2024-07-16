@@ -15,13 +15,11 @@ class FilterPresenter: iFilterPresenter {
     
     weak var viewController: FilterViewController?
     
-    var filter: FilterModel = FilterModel(name: nil, status: .dead, species: [], location: nil, appearance: nil) {
+    var filter: FilterModel = FilterModel(name: nil, status: .dead, species: nil, location: nil, appearance: nil) {
         didSet {
-            print(filter.name)
-            print(filter.status)
-            print(filter.species)
-            print(filter.location)
-            print(filter.appearance)
+            print("filter changed")
+            viewController?.filterChanged?(filter)
+            NotificationCenter.default.post(name: .filterChanged, object: nil, userInfo: ["filter":filter])
         }
     }
 }
