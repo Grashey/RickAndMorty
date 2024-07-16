@@ -24,16 +24,18 @@ class CharacterTableViewCell: UITableViewCell {
     }(UIView())
     
     private lazy var characterImageView: UIImageView = {
-        $0.image = UIImage(named: "imagePlaceholder")
+        $0.backgroundColor = .rm_background
         $0.contentMode = .scaleAspectFill
         $0.setContentCompressionResistancePriority(.required, for: .vertical)
         $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.layer.masksToBounds = true
         return $0
     }(UIImageView())
     
     private lazy var nameLabel: UILabel = {
         $0.font = UIFont(name: Fonts.bold, size: UIConstants.headerFontSize)
         $0.textColor = majorTextColor
+        $0.adjustsFontSizeToFitWidth = true
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
     }(UILabel())
@@ -49,6 +51,7 @@ class CharacterTableViewCell: UITableViewCell {
     private lazy var nameStack: UIStackView = {
         $0.axis = .horizontal
         $0.distribution = .fillProportionally
+        $0.spacing = 6
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
     }(UIStackView())
@@ -167,6 +170,11 @@ class CharacterTableViewCell: UITableViewCell {
         addSubviews()
         addConstraints()
         contentView.backgroundColor = .rm_black
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        characterImageView.image = nil
     }
     
     required init?(coder: NSCoder) {

@@ -25,7 +25,6 @@ class MainView: UIView {
     }(UIView())
     
     private lazy var scrollView: UIScrollView = {
-        $0.showsVerticalScrollIndicator = false
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
     }(UIScrollView())
@@ -83,10 +82,6 @@ class MainView: UIView {
         case .filter: fillContainer(parentView: topContainer, childView: view)
         case .results: fillContainer(parentView: bottomContainer, childView: view)
         }
-    }
-    
-    func configureScrollView(refreshControl: UIRefreshControl?) {
-        scrollView.refreshControl = refreshControl
     }
     
     func configureScrollView(delegate: UIScrollViewDelegate) {

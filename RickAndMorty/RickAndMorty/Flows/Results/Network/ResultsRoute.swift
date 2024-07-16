@@ -9,6 +9,7 @@ import Foundation
 
 enum ResultsRoute {
     case character
+    case image
 }
 
 extension ResultsRoute: Route {
@@ -16,6 +17,7 @@ extension ResultsRoute: Route {
     var endpoint: String {
         switch self {
         case .character: return Api.Endpoint.character.rawValue
+        case .image: return ""
         }
     }
 }

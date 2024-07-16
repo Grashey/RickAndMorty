@@ -11,7 +11,6 @@ import UIKit
 class MainViewController: UIViewController {
     
     private lazy var mainView = MainView()
-    private var refreshControl: UIRefreshControl!
     private let router = MainRouter()
     
     // MARK: Childs
@@ -27,12 +26,7 @@ class MainViewController: UIViewController {
         results = ResultsFactory.build()
         addContainer(type: .filter, child: filter)
         addContainer(type: .results, child: results)
-        mainView.configureScrollView(refreshControl: refreshControl)
         mainView.configureScrollView(delegate: self)
-        
-        filter?.filterChanged = { filter in
-            
-        }
         
         results?.closeOthers = { [unowned self] in
             filter?.closeFilters()
@@ -68,15 +62,17 @@ class MainViewController: UIViewController {
         child.view.removeFromSuperview()
     }
     
-    @objc private func refresh() {
-        refreshControl.endRefreshing()
-    }
-    
 }
 
 extension MainViewController: UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         filter?.view.endEditing(true)
+        guard scrollView.contentOffset.y  > .zero else { return }
+        let estimatedResultCellHeight: CGFloat = 400
+        if let filterOffset = filter?.view.frame.height,
+                scrollView.contentOffset.y + filterOffset + estimatedResultCellHeight > scrollView.contentSize.height {
+            results?.getResults()
+        }
     }
 }

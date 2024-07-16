@@ -19,7 +19,17 @@ class ResultsViewController: UITableViewController {
     // навигация
     var onCharacterDetails: ((CharacterModel) -> Void)?
     
+    private let spinner = SpinnerController()
+    var isLoading = false {
+        didSet {
+            guard oldValue != isLoading else { return }
+            showSpinner(isShown: isLoading)
+        }
+    }
+    
     override func viewDidLoad() {
+        tableView = ContentSizedTableView()
+        tableView.isScrollEnabled = false
         tableView.backgroundColor = .rm_black
         tableView.separatorStyle = .none
         tableView.showsVerticalScrollIndicator = false
@@ -27,12 +37,24 @@ class ResultsViewController: UITableViewController {
         presenter.getCharacters()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        if let height = self.parent?.view.frame.height {
-            tableView.heightAnchor.constraint(equalToConstant: height).isActive = true
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let frame = self.parent?.view.frame {
+            spinner.view.frame = frame
+        }
+    }
+
+    private func showSpinner(isShown: Bool) {
+        DispatchQueue.main.async { [unowned self] in
+            if isShown {
+                parent?.addChild(spinner)
+                parent?.view.addSubview(spinner.view)
+                spinner.didMove(toParent: parent)
+            } else {
+                spinner.willMove(toParent: nil)
+                spinner.view.removeFromSuperview()
+                spinner.removeFromParent()
+            }
         }
     }
     
@@ -49,9 +71,14 @@ class ResultsViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row > presenter.models.count - 2 {
-            presenter.getCharacters()
+        let model = presenter?.models[indexPath.row]
+        if model?.imageData == nil {
+            presenter.updateImageFor(indexPath.row)
         }
+    }
+    
+    func getResults() {
+        presenter.getCharacters()
     }
     
     @objc private func dropDownButtonTapped(_ sender: UIButton) {
@@ -72,6 +99,15 @@ class ResultsViewController: UITableViewController {
     
     func reloadView() {
         tableView.reloadData()
+    }
+    
+    func addRowsAt(indexes: [Int]) {
+        let indexPaths = indexes.map({IndexPath(row: $0, section: .zero)})
+        tableView.insertRows(at: indexPaths, with: .none)
+    }
+    
+    func reloadRowAt(index: Int) {
+        tableView.reloadRows(at: [IndexPath(row: index, section: .zero)], with: .none)
     }
 
 }
