@@ -14,9 +14,9 @@ class CharacterView: UIView {
     
     // MARK: UI Elements
     private lazy var characterImageView: UIImageView = {
-        $0.image = UIImage(named: "imagePlaceholder")
-        $0.contentMode = .scaleAspectFit
+        $0.contentMode = .scaleAspectFill
         $0.setContentCompressionResistancePriority(.required, for: .vertical)
+        $0.layer.masksToBounds = true
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
     }(UIImageView())
@@ -147,6 +147,7 @@ class CharacterView: UIView {
             characterImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             characterImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
             characterImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            characterImageView.heightAnchor.constraint(equalToConstant: 256),
             
             mainStack.topAnchor.constraint(equalTo: characterImageView.bottomAnchor, constant: UIConstants.majorPadding),
             mainStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: UIConstants.majorPadding),

@@ -152,8 +152,8 @@ class FilterView: UIView {
         
     // MARK: Internal methods
     @objc private func isSelectedToggle(_ sender: UIButton) {
-        var dropDownButtons: [UIButton] = [locationFilter, appearanceFilter]
-        var speciesButtons = buttonsStack.arrangedSubviews.map{$0 as! UIButton}
+        let dropDownButtons: [UIButton] = [locationFilter, appearanceFilter]
+        let speciesButtons = buttonsStack.arrangedSubviews.map{$0 as! UIButton}
         var buttons: [UIButton]
         
         if dropDownButtons.contains(sender) {

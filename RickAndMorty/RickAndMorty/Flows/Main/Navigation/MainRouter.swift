@@ -9,8 +9,9 @@ import UIKit
 
 class MainRouter: Router {
     
-    func onCharacterDetail() {
+    func onCharacterDetail(_ model: CharacterModel) {
         let controller = CharacterViewController()
+        controller.model = model
         push(controller)
     }
 }

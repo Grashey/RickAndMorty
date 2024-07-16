@@ -35,7 +35,7 @@ class MainViewController: UIViewController {
         
         router.delegate = self
         results?.onCharacterDetails = { [unowned self] model in
-            router.onCharacterDetail()
+            router.onCharacterDetail(model)
         }
     }
     
