@@ -71,7 +71,7 @@ extension MainViewController: UIScrollViewDelegate {
         guard scrollView.contentOffset.y  > .zero else { return }
         let estimatedResultCellHeight: CGFloat = 400
         if let filterOffset = filter?.view.frame.height,
-                scrollView.contentOffset.y + filterOffset + estimatedResultCellHeight > scrollView.contentSize.height {
+                scrollView.contentOffset.y + filterOffset + estimatedResultCellHeight*4 > scrollView.contentSize.height {
             results?.getResults()
         }
     }

@@ -10,6 +10,7 @@ import Foundation
 enum ResultsRoute {
     case character
     case image
+    case episode(String)
 }
 
 extension ResultsRoute: Route {
@@ -18,6 +19,7 @@ extension ResultsRoute: Route {
         switch self {
         case .character: return Api.Endpoint.character.rawValue
         case .image: return ""
+        case .episode(let id): return Api.Endpoint.episode.rawValue + "/\(id)"
         }
     }
 }

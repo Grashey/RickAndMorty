@@ -12,7 +12,7 @@ struct CharacterModel {
     let status: Status
     let species: Species
     let lastLocation: String
-    let firstEpisode: String
+    var firstEpisode: String
     let info: String
     var imageData: Data?
 }

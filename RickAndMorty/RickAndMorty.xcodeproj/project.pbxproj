@@ -65,6 +65,7 @@
 		4AA0CF8B2C459BD200CE4C51 /* Notification.Name + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CF8A2C459BD200CE4C51 /* Notification.Name + Ext.swift */; };
 		4AA0CF8D2C459DE700CE4C51 /* ResultsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CF8C2C459DE700CE4C51 /* ResultsFactory.swift */; };
 		4AA0CF932C46C7A400CE4C51 /* SpinnerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CF922C46C7A400CE4C51 /* SpinnerController.swift */; };
+		4AA0CF982C46EFC500CE4C51 /* EpisodeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CF972C46EFC500CE4C51 /* EpisodeResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -128,6 +129,7 @@
 		4AA0CF8A2C459BD200CE4C51 /* Notification.Name + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification.Name + Ext.swift"; sourceTree = "<group>"; };
 		4AA0CF8C2C459DE700CE4C51 /* ResultsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsFactory.swift; sourceTree = "<group>"; };
 		4AA0CF922C46C7A400CE4C51 /* SpinnerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerController.swift; sourceTree = "<group>"; };
+		4AA0CF972C46EFC500CE4C51 /* EpisodeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -385,6 +387,7 @@
 			isa = PBXGroup;
 			children = (
 				4AA0CF852C458AE000CE4C51 /* CharacterResponse.swift */,
+				4AA0CF972C46EFC500CE4C51 /* EpisodeResponse.swift */,
 				4AA0CF882C4595EE00CE4C51 /* ResultsRoute.swift */,
 				4AA0CF832C4589D900CE4C51 /* ResultsNetworkService.swift */,
 			);
@@ -546,6 +549,7 @@
 				4A1AEC982C3C1A1C00FB726A /* FilterModel.swift in Sources */,
 				4AA0CF2C2C3E7E8700CE4C51 /* HeaderViewController.swift in Sources */,
 				4AA0CF592C44275100CE4C51 /* Route.swift in Sources */,
+				4AA0CF982C46EFC500CE4C51 /* EpisodeResponse.swift in Sources */,
 				4AA0CF7B2C45391A00CE4C51 /* FilterPresenter.swift in Sources */,
 				4AA0CF322C411D2900CE4C51 /* MainViewController.swift in Sources */,
 				4AA0CF5F2C442A7D00CE4C51 /* NetworkError.swift in Sources */,

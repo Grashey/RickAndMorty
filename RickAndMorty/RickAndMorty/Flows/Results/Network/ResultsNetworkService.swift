@@ -10,6 +10,7 @@ import Foundation
 protocol iResultsNetworkService {
     func fetchCharacters(filter: FilterModel, page: Int) async throws -> Data
     func fetchImage(url: String) async throws -> Data
+    func fetchEpisode(id: String) async throws -> Data
 }
 
 class ResultsNetworkService: iResultsNetworkService {
@@ -38,6 +39,12 @@ class ResultsNetworkService: iResultsNetworkService {
     
     func fetchImage(url: String) async throws -> Data {
         let request = requestBuilder.makeRequest(route: ResultsRoute.image, path: url)
+        let response = try await httpClient.send(request: request)
+        return response.data
+    }
+    
+    func fetchEpisode(id: String) async throws -> Data {
+        let request = requestBuilder.makeRequest(route: ResultsRoute.episode(id))
         let response = try await httpClient.send(request: request)
         return response.data
     }

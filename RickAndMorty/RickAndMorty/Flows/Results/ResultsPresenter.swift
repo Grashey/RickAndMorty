@@ -11,7 +11,7 @@ protocol iResultsPresenter {
     var models: [CharacterModel] {get set}
     
     func getCharacters() 
-    func updateImageFor(_ index: Int)
+    func updateModelAt(_ index: Int)
 }
 
 class ResultsPresenter: iResultsPresenter {
@@ -66,7 +66,7 @@ class ResultsPresenter: iResultsPresenter {
     }
     
     private func makeModelFrom(_ model: CharacterResponse) -> CharacterModel {
-        CharacterModel(name: model.name, status: Status(rawValue: model.status) ?? .alive, species: Species(rawValue: model.species) ?? .alien, lastLocation: model.location.name, firstEpisode: model.episode[0], info: CharacterInfo.text, imageData: nil)
+        CharacterModel(name: model.name, status: Status(rawValue: model.status) ?? .alive, species: Species(rawValue: model.species) ?? .alien, lastLocation: model.location.name, firstEpisode: "", info: CharacterInfo.text, imageData: nil)
     }
     
     private func refresh() {
@@ -86,15 +86,20 @@ class ResultsPresenter: iResultsPresenter {
         getCharacters()
     }
     
-    func updateImageFor(_ index: Int) {
+    func updateModelAt(_ index: Int) {
+        guard index < masterArray.count else { return }
         Task {
             do {
                 let model = masterArray[index]
-                let data = try await networkService.fetchImage(url: model.image)
-                if let image = UIImage(data: data) {
-                    models[index].imageData = data
-                    await viewController?.reloadRowAt(index: index)
-                }
+                let imageData = try await networkService.fetchImage(url: model.image)
+                
+                guard let episodeID = model.episode.first?.components(separatedBy: "/").last else { return }
+                let episodeData = try await networkService.fetchEpisode(id: episodeID)
+                let episode = try JSONDecoder().decode(EpisodeResponse.self, from: episodeData)
+                
+                models[index].imageData = imageData
+                models[index].firstEpisode = episode.name
+                await viewController?.reloadRowAt(index: index)
             } catch {
                 await viewController?.showToast(messageFrom(error), success: false)
             }

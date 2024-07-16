@@ -44,6 +44,8 @@ class CharacterTableViewCell: UITableViewCell {
         $0.setImage(UIImage(named: "dropDownArrow"), for: .normal)
         $0.setImage(UIImage(named: "dropUpArrow"), for: .selected)
         $0.tintColor = .rm_dropdownArrow
+        $0.setContentCompressionResistancePriority(.required, for: .horizontal)
+        $0.setContentHuggingPriority(.required, for: .horizontal)
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
     }(ExpandedButton())

@@ -73,7 +73,7 @@ class ResultsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let model = presenter?.models[indexPath.row]
         if model?.imageData == nil {
-            presenter.updateImageFor(indexPath.row)
+            presenter.updateModelAt(indexPath.row)
         }
     }
     
@@ -89,7 +89,7 @@ class ResultsViewController: UITableViewController {
         } else {
             expandedDict[indexPath] = true
         }
-        tableView.reloadRows(at: [indexPath], with: .fade)
+        reloadRowAt(index: sender.tag)
     }
     
     @objc private func readMore(_ sender: UIButton) {
