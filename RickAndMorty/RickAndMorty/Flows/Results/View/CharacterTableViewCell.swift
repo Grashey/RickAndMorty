@@ -11,6 +11,7 @@ class CharacterTableViewCell: UITableViewCell {
     
     private let dotSide: CGFloat = 5
     private let imageHeight: CGFloat = 156
+    private let buttonSide: CGFloat = 40
     private let majorTextColor: UIColor = .rm_white
     private let minorTextColor: UIColor = .rm_gray
     
@@ -39,6 +40,11 @@ class CharacterTableViewCell: UITableViewCell {
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
     }(UILabel())
+    
+    private lazy var nameRigthView: UIView = {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        return $0
+    }(UIView())
     
     private lazy var detailsButton: ExpandedButton = {
         $0.setImage(UIImage(named: "dropDownArrow"), for: .normal)
@@ -185,7 +191,7 @@ class CharacterTableViewCell: UITableViewCell {
     
     private func addSubviews() {
         nameStack.addArrangedSubview(nameLabel)
-        nameStack.addArrangedSubview(detailsButton)
+        nameStack.addArrangedSubview(nameRigthView)
         
         statusStack.addArrangedSubview(statusView)
         statusStack.addArrangedSubview(statusLabel)
@@ -208,6 +214,7 @@ class CharacterTableViewCell: UITableViewCell {
         
         mainBackground.addSubview(characterImageView)
         mainBackground.addSubview(mainStack)
+        mainBackground.addSubview(detailsButton)
         contentView.addSubview(mainBackground)
     }
     
@@ -222,6 +229,12 @@ class CharacterTableViewCell: UITableViewCell {
             characterImageView.topAnchor.constraint(equalTo: mainBackground.topAnchor),
             characterImageView.leadingAnchor.constraint(equalTo: mainBackground.leadingAnchor),
             characterImageView.trailingAnchor.constraint(equalTo: mainBackground.trailingAnchor),
+            
+            detailsButton.widthAnchor.constraint(equalToConstant: buttonSide),
+            detailsButton.heightAnchor.constraint(equalToConstant: buttonSide),
+            detailsButton.centerYAnchor.constraint(equalTo: nameLabel.centerYAnchor),
+            detailsButton.trailingAnchor.constraint(equalTo: mainBackground.trailingAnchor, constant: -UIConstants.minorPadding),
+            nameRigthView.widthAnchor.constraint(equalToConstant: buttonSide),
             
             mainStack.topAnchor.constraint(equalTo: characterImageView.bottomAnchor, constant: UIConstants.majorPadding),
             mainStack.bottomAnchor.constraint(equalTo: mainBackground.bottomAnchor, constant: -UIConstants.majorPadding),

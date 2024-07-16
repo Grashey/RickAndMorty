@@ -25,6 +25,8 @@ class MainView: UIView {
     }(UIView())
     
     private lazy var scrollView: UIScrollView = {
+        $0.decelerationRate = .fast
+        $0.showsVerticalScrollIndicator = false
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
     }(UIScrollView())

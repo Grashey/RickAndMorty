@@ -77,10 +77,6 @@ class ResultsViewController: UITableViewController {
         }
     }
     
-    func getResults() {
-        presenter.getCharacters()
-    }
-    
     @objc private func dropDownButtonTapped(_ sender: UIButton) {
         closeOthers?()
         let indexPath = IndexPath(row: sender.tag, section: .zero)
@@ -99,11 +95,6 @@ class ResultsViewController: UITableViewController {
     
     func reloadView() {
         tableView.reloadData()
-    }
-    
-    func addRowsAt(indexes: [Int]) {
-        let indexPaths = indexes.map({IndexPath(row: $0, section: .zero)})
-        tableView.insertRows(at: indexPaths, with: .none)
     }
     
     func reloadRowAt(index: Int) {

@@ -11,4 +11,8 @@ extension Notification.Name {
     static var filterChanged: Notification.Name {
         return .init(rawValue: "filterChanged")
     }
+    
+    static var contentHeightChanged: Notification.Name {
+        return .init(rawValue: "contentHeightChanged")
+    }
 }

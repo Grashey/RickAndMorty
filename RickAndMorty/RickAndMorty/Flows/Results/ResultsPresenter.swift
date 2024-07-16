@@ -19,6 +19,7 @@ class ResultsPresenter: iResultsPresenter {
     weak var viewController: ResultsViewController?
     private let networkService: iResultsNetworkService
     private var filter: FilterModel = FilterModel(name: nil, status: .dead, species: nil, location: nil, appearance: nil)
+    private var contentHeight: CGFloat = 0
     
     var models: [CharacterModel] = []
     var masterArray: [CharacterResponse] = []
@@ -35,6 +36,7 @@ class ResultsPresenter: iResultsPresenter {
     init(networkService: iResultsNetworkService) {
         self.networkService = networkService
         NotificationCenter.default.addObserver(self, selector: #selector(reflex(_:)), name: .filterChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(dataRequest(_:)), name: .contentHeightChanged, object: nil)
     }
     
     func getCharacters() {
@@ -48,20 +50,14 @@ class ResultsPresenter: iResultsPresenter {
                 let response = try JSONDecoder().decode(CharacterListResponse.self, from: data)
                 pageCount = response.info.pages
                 let characters = response.results
-                
-                var indexes: [Int] = []
-                for index in .zero..<characters.count {
-                    let newIndex = index + masterArray.count
-                    indexes.append(newIndex)
-                }
                 masterArray += characters
-                models = masterArray.map{makeModelFrom($0)}
-                await viewController?.addRowsAt(indexes: indexes)
+                models += characters.map{makeModelFrom($0)}
+                await viewController?.reloadView()
                 currentPage += 1
-                isLoading = false
             } catch {
                 await viewController?.showToast(messageFrom(error), success: false)
             }
+            isLoading = false
         }
     }
     
@@ -75,6 +71,7 @@ class ResultsPresenter: iResultsPresenter {
         models = []
         masterArray = []
         filteredArray = []
+        contentHeight = 0
         viewController?.reloadView()
     }
     
@@ -86,23 +83,32 @@ class ResultsPresenter: iResultsPresenter {
         getCharacters()
     }
     
+    @objc private func dataRequest(_ notification: NSNotification) {
+        if let newHeight = notification.userInfo?["contentHeight"] as? CGFloat {
+            if newHeight != contentHeight {
+                contentHeight = newHeight
+                getCharacters()
+            }
+        }
+    }
+    
     func updateModelAt(_ index: Int) {
         guard index < masterArray.count else { return }
+        isLoading = true
         Task {
             do {
                 let model = masterArray[index]
                 let imageData = try await networkService.fetchImage(url: model.image)
-                
                 guard let episodeID = model.episode.first?.components(separatedBy: "/").last else { return }
                 let episodeData = try await networkService.fetchEpisode(id: episodeID)
                 let episode = try JSONDecoder().decode(EpisodeResponse.self, from: episodeData)
-                
                 models[index].imageData = imageData
                 models[index].firstEpisode = episode.name
                 await viewController?.reloadRowAt(index: index)
             } catch {
                 await viewController?.showToast(messageFrom(error), success: false)
             }
+            isLoading = false
         }
     }
     

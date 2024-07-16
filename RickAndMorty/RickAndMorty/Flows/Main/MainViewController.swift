@@ -61,7 +61,6 @@ class MainViewController: UIViewController {
         child.removeFromParent()
         child.view.removeFromSuperview()
     }
-    
 }
 
 extension MainViewController: UIScrollViewDelegate {
@@ -71,8 +70,8 @@ extension MainViewController: UIScrollViewDelegate {
         guard scrollView.contentOffset.y  > .zero else { return }
         let estimatedResultCellHeight: CGFloat = 400
         if let filterOffset = filter?.view.frame.height,
-                scrollView.contentOffset.y + filterOffset + estimatedResultCellHeight*4 > scrollView.contentSize.height {
-            results?.getResults()
+                scrollView.contentOffset.y + filterOffset + estimatedResultCellHeight*3 > scrollView.contentSize.height {
+            NotificationCenter.default.post(name: .contentHeightChanged, object: nil, userInfo: ["contentHeight":scrollView.contentSize.height])
         }
     }
 }
