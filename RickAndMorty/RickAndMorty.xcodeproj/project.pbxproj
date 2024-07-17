@@ -36,7 +36,6 @@
 		4AA0CF372C41278F00CE4C51 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CF362C41278F00CE4C51 /* ResultsViewController.swift */; };
 		4AA0CF3A2C414E8E00CE4C51 /* CharacterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CF392C414E8E00CE4C51 /* CharacterModel.swift */; };
 		4AA0CF3C2C4151E800CE4C51 /* CharacterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CF3B2C4151E800CE4C51 /* CharacterTableViewCell.swift */; };
-		4AA0CF3E2C417F9A00CE4C51 /* ContentSizedTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CF3D2C417F9A00CE4C51 /* ContentSizedTableView.swift */; };
 		4AA0CF402C41837200CE4C51 /* CharacterInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CF3F2C41837200CE4C51 /* CharacterInfo.swift */; };
 		4AA0CF462C426AC000CE4C51 /* CharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CF452C426AC000CE4C51 /* CharacterViewController.swift */; };
 		4AA0CF4B2C426CB100CE4C51 /* CharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CF4A2C426CB100CE4C51 /* CharacterView.swift */; };
@@ -100,7 +99,6 @@
 		4AA0CF362C41278F00CE4C51 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		4AA0CF392C414E8E00CE4C51 /* CharacterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModel.swift; sourceTree = "<group>"; };
 		4AA0CF3B2C4151E800CE4C51 /* CharacterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTableViewCell.swift; sourceTree = "<group>"; };
-		4AA0CF3D2C417F9A00CE4C51 /* ContentSizedTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentSizedTableView.swift; sourceTree = "<group>"; };
 		4AA0CF3F2C41837200CE4C51 /* CharacterInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterInfo.swift; sourceTree = "<group>"; };
 		4AA0CF452C426AC000CE4C51 /* CharacterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewController.swift; sourceTree = "<group>"; };
 		4AA0CF4A2C426CB100CE4C51 /* CharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterView.swift; sourceTree = "<group>"; };
@@ -216,7 +214,6 @@
 				4A1AEC8D2C3BD55900FB726A /* RmButton.swift */,
 				4A1AEC9D2C3DAB7300FB726A /* PaddingLabel.swift */,
 				4AA0CF2E2C4021D000CE4C51 /* ExpandedButton.swift */,
-				4AA0CF3D2C417F9A00CE4C51 /* ContentSizedTableView.swift */,
 			);
 			path = "UI Elements";
 			sourceTree = "<group>";
@@ -527,7 +524,6 @@
 				4AA0CF6B2C4529AE00CE4C51 /* DropDownListType.swift in Sources */,
 				4AA0CF5B2C44282000CE4C51 /* Api.swift in Sources */,
 				4AA0CF652C442DB300CE4C51 /* DropDownRoute.swift in Sources */,
-				4AA0CF3E2C417F9A00CE4C51 /* ContentSizedTableView.swift in Sources */,
 				4AA0CF3A2C414E8E00CE4C51 /* CharacterModel.swift in Sources */,
 				4AA0CF842C4589D900CE4C51 /* ResultsNetworkService.swift in Sources */,
 				4A1AEC9C2C3DAA1300FB726A /* DropDownTableViewCell.swift in Sources */,

@@ -12,8 +12,6 @@ class ResultsViewController: UITableViewController {
     
     var presenter: iResultsPresenter!
     
-    // хранение открытых/закрытых ячеек
-    private var expandedDict: [IndexPath : Bool] = [:]
     // закрытие всех popUp в других блоках
     var closeOthers: (() -> Void)?
     // навигация
@@ -28,7 +26,8 @@ class ResultsViewController: UITableViewController {
     }
     
     override func viewDidLoad() {
-        tableView = ContentSizedTableView()
+        
+        tableView.bounces = false
         tableView.isScrollEnabled = false
         tableView.backgroundColor = .rm_black
         tableView.separatorStyle = .none
@@ -42,6 +41,7 @@ class ResultsViewController: UITableViewController {
         if let frame = self.parent?.view.frame {
             spinner.view.frame = frame
         }
+        filterHeight = parent?.children.first?.view.frame.height ?? .zero
     }
 
     private func showSpinner(isShown: Bool) {
@@ -66,26 +66,38 @@ class ResultsViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: CharacterTableViewCell.description(), for: indexPath)
         (cell as? CharacterTableViewCell)?.configureWith(presenter.models[indexPath.row], tag: indexPath.row)
         (cell as? CharacterTableViewCell)?.configureActions(target: self, dropDown: #selector(dropDownButtonTapped(_:)), readMore: #selector(readMore))
-        (cell as? CharacterTableViewCell)?.configureDropDown(isActive: expandedDict[indexPath] ?? false)
+        (cell as? CharacterTableViewCell)?.configureDropDown(isActive: presenter.expandedDict[indexPath] ?? false)
         return cell
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let model = presenter?.models[indexPath.row]
-        if model?.imageData == nil {
-            presenter.updateModelAt(indexPath.row)
+        if indexPath.row > presenter.models.count - 2 {
+            presenter.getCharacters()
+        }
+        
+        let index = min(indexPath.row + 1, presenter.models.count - 1)
+        let model = presenter.models[index]
+        if model.imageData == nil {
+            presenter.updateModelAt(index)
+        }
+        
+        if index == 1 {
+            let modelZero = presenter.models[.zero]
+            if modelZero.imageData == nil {
+                presenter.updateModelAt(.zero)
+            }
         }
     }
     
     @objc private func dropDownButtonTapped(_ sender: UIButton) {
         closeOthers?()
         let indexPath = IndexPath(row: sender.tag, section: .zero)
-        if let existed = expandedDict[indexPath] {
-            expandedDict[indexPath] = !existed
+        if let existed = presenter.expandedDict[indexPath] {
+            presenter.expandedDict[indexPath] = !existed
         } else {
-            expandedDict[indexPath] = true
+            presenter.expandedDict[indexPath] = true
         }
-        reloadRowAt(index: sender.tag)
+        reloadView()
     }
     
     @objc private func readMore(_ sender: UIButton) {
@@ -99,6 +111,26 @@ class ResultsViewController: UITableViewController {
     
     func reloadRowAt(index: Int) {
         tableView.reloadRows(at: [IndexPath(row: index, section: .zero)], with: .none)
+    }
+    
+    var filterHeight: CGFloat = 0
+    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard let filterView = parent?.children.first?.view else { return }
+        if scrollView.bounds.contains(filterView.bounds) {
+            tableView.isScrollEnabled = false
+        } else {
+            tableView.isScrollEnabled = true
+        }
+        if scrollView == tableView {
+            tableView.isScrollEnabled = (tableView.contentOffset.y > 0)
+        }
+    }
+    
+    override func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        let currentOffset = scrollView.contentOffset.y
+        let targetOffset = CGFloat(targetContentOffset.pointee.y)
+        print(currentOffset, targetOffset)
     }
 
 }

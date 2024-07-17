@@ -14,8 +14,8 @@ class MainViewController: UIViewController {
     private let router = MainRouter()
     
     // MARK: Childs
-    var filter: FilterViewController?
-    var results: ResultsViewController?
+    var filter: FilterViewController!
+    var results: ResultsViewController!
     
     override func loadView() {
         view = mainView
@@ -26,15 +26,15 @@ class MainViewController: UIViewController {
         results = ResultsFactory.build()
         addContainer(type: .filter, child: filter)
         addContainer(type: .results, child: results)
-        mainView.configureScrollView(delegate: self)
+        mainView.configureScrollView(delegate: results)
         
-        results?.closeOthers = { [unowned self] in
+        results.closeOthers = { [unowned self] in
             filter?.closeFilters()
             filter?.view.endEditing(true)
         }
         
         router.delegate = self
-        results?.onCharacterDetails = { [unowned self] model in
+        results.onCharacterDetails = { [unowned self] model in
             router.onCharacterDetail(model)
         }
     }
@@ -60,18 +60,5 @@ class MainViewController: UIViewController {
         child.willMove(toParent: nil)
         child.removeFromParent()
         child.view.removeFromSuperview()
-    }
-}
-
-extension MainViewController: UIScrollViewDelegate {
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        filter?.view.endEditing(true)
-        guard scrollView.contentOffset.y  > .zero else { return }
-        let estimatedResultCellHeight: CGFloat = 400
-        if let filterOffset = filter?.view.frame.height,
-                scrollView.contentOffset.y + filterOffset + estimatedResultCellHeight*3 > scrollView.contentSize.height {
-            NotificationCenter.default.post(name: .contentHeightChanged, object: nil, userInfo: ["contentHeight":scrollView.contentSize.height])
-        }
     }
 }

@@ -9,8 +9,9 @@ import UIKit
 
 protocol iResultsPresenter {
     var models: [CharacterModel] {get set}
+    var expandedDict: [IndexPath : Bool] {get set}
     
-    func getCharacters() 
+    func getCharacters()
     func updateModelAt(_ index: Int)
 }
 
@@ -19,11 +20,12 @@ class ResultsPresenter: iResultsPresenter {
     weak var viewController: ResultsViewController?
     private let networkService: iResultsNetworkService
     private var filter: FilterModel = FilterModel(name: nil, status: .dead, species: nil, location: nil, appearance: nil)
-    private var contentHeight: CGFloat = 0
     
     var models: [CharacterModel] = []
     var masterArray: [CharacterResponse] = []
     var filteredArray: [CharacterResponse] = []
+    // хранение открытых/закрытых ячеек
+    var expandedDict: [IndexPath : Bool] = [:]
     
     private var currentPage: Int = 1
     private var pageCount: Int?
@@ -36,7 +38,6 @@ class ResultsPresenter: iResultsPresenter {
     init(networkService: iResultsNetworkService) {
         self.networkService = networkService
         NotificationCenter.default.addObserver(self, selector: #selector(reflex(_:)), name: .filterChanged, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(dataRequest(_:)), name: .contentHeightChanged, object: nil)
     }
     
     func getCharacters() {
@@ -62,7 +63,7 @@ class ResultsPresenter: iResultsPresenter {
     }
     
     private func makeModelFrom(_ model: CharacterResponse) -> CharacterModel {
-        CharacterModel(name: model.name, status: Status(rawValue: model.status) ?? .alive, species: Species(rawValue: model.species) ?? .alien, lastLocation: model.location.name, firstEpisode: "", info: CharacterInfo.text, imageData: nil)
+        CharacterModel(name: model.name, status: Status(rawValue: model.status) ?? .alive, species: Species(rawValue: model.species) ?? .alien, lastLocation: model.location.name, firstEpisode: " ", info: CharacterInfo.text, imageData: nil)
     }
     
     private func refresh() {
@@ -71,7 +72,7 @@ class ResultsPresenter: iResultsPresenter {
         models = []
         masterArray = []
         filteredArray = []
-        contentHeight = 0
+        expandedDict.removeAll()
         viewController?.reloadView()
     }
     
@@ -83,18 +84,8 @@ class ResultsPresenter: iResultsPresenter {
         getCharacters()
     }
     
-    @objc private func dataRequest(_ notification: NSNotification) {
-        if let newHeight = notification.userInfo?["contentHeight"] as? CGFloat {
-            if newHeight != contentHeight {
-                contentHeight = newHeight
-                getCharacters()
-            }
-        }
-    }
-    
     func updateModelAt(_ index: Int) {
         guard index < masterArray.count else { return }
-        isLoading = true
         Task {
             do {
                 let model = masterArray[index]
@@ -108,7 +99,6 @@ class ResultsPresenter: iResultsPresenter {
             } catch {
                 await viewController?.showToast(messageFrom(error), success: false)
             }
-            isLoading = false
         }
     }
     

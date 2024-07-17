@@ -105,7 +105,7 @@ class FilterView: UIView {
             locationFilter.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -UIConstants.majorPadding),
             
             appearanceFilter.topAnchor.constraint(equalTo: locationFilter.bottomAnchor, constant: UIConstants.minorPadding),
-            appearanceFilter.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -UIConstants.majorPadding),
+            appearanceFilter.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -UIConstants.minorPadding),
             appearanceFilter.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: UIConstants.majorPadding),
             appearanceFilter.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -UIConstants.majorPadding)
         ])

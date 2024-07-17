@@ -25,7 +25,8 @@ class MainView: UIView {
     }(UIView())
     
     private lazy var scrollView: UIScrollView = {
-        $0.decelerationRate = .fast
+        $0.tag = 0
+        $0.bounces = false
         $0.showsVerticalScrollIndicator = false
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
@@ -74,7 +75,8 @@ class MainView: UIView {
             bottomContainer.topAnchor.constraint(equalTo: topContainer.bottomAnchor),
             bottomContainer.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             bottomContainer.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            bottomContainer.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
+            bottomContainer.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            bottomContainer.heightAnchor.constraint(equalToConstant: containerHeight())
         ])
     }
     
@@ -100,5 +102,16 @@ class MainView: UIView {
             childView.leadingAnchor.constraint(equalTo: parentView.leadingAnchor),
             childView.trailingAnchor.constraint(equalTo: parentView.trailingAnchor)
         ])
+    }
+}
+
+
+extension MainView {
+    
+    func containerHeight() -> CGFloat {
+        let window = UIApplication.shared.connectedScenes.compactMap { $0 as? UIWindowScene }.flatMap { $0.windows }.last { $0.isKeyWindow }
+        let height = window?.safeAreaLayoutGuide.layoutFrame.height ?? .zero
+        let bottomPadding = window?.safeAreaInsets.bottom ?? .zero
+        return height + bottomPadding
     }
 }
