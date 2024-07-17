@@ -37,6 +37,7 @@ class FilterViewController: UIViewController {
     }
     
     @objc private func filterSpecies(_ sender: UIButton) {
+        closeFilters()
         guard let species = Species.init(rawValue: sender.titleLabel?.text ?? "") else { return }
         if presenter.filter.species != species {
             presenter.filter.species = species
@@ -75,8 +76,8 @@ class FilterViewController: UIViewController {
     }
     
     private func show(_ list: UIViewController) {
-        self.parent?.addChild(list) // открытое меню ниже границы текущего вью, кладем в Main чтобы открытое меню имело под собой респондер родителя
-        self.view.superview?.superview?.addSubview(list.view)
+        self.parent?.addChild(list)
+        self.parent?.view.addSubview(list.view)
         list.didMove(toParent: self.parent)
     }
     
@@ -108,11 +109,6 @@ extension FilterViewController: UISearchTextFieldDelegate {
         presenter.filter.name = textField.text
         textField.endEditing(true)
         return true
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        guard presenter.filter.name != textField.text else { return }
-        presenter.filter.name = textField.text
     }
     
     func textFieldShouldClear(_ textField: UITextField) -> Bool {

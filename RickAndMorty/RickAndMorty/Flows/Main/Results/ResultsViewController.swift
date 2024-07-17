@@ -12,11 +12,6 @@ class ResultsViewController: UITableViewController {
     
     var presenter: iResultsPresenter!
     
-    // закрытие всех popUp в других блоках
-    var closeOthers: (() -> Void)?
-    // навигация
-    var onCharacterDetails: ((CharacterModel) -> Void)?
-    
     private let spinner = SpinnerController()
     var isLoading = false {
         didSet {
@@ -25,14 +20,22 @@ class ResultsViewController: UITableViewController {
         }
     }
     
+    // MARK: Child
+    var filter: FilterViewController!
+    private let router = MainRouter()
+    
     override func viewDidLoad() {
+        router.delegate = self
+        filter = FilterFactory.build()
+        addChild(filter)
+        filter?.didMove(toParent: self)
         
         tableView.bounces = false
-        tableView.isScrollEnabled = false
         tableView.backgroundColor = .rm_black
         tableView.separatorStyle = .none
         tableView.showsVerticalScrollIndicator = false
         tableView.register(CharacterTableViewCell.self, forCellReuseIdentifier: CharacterTableViewCell.description())
+        tableView.register(FilterTableViewCell.self, forCellReuseIdentifier: FilterTableViewCell.description())
         presenter.getCharacters()
     }
     
@@ -41,7 +44,12 @@ class ResultsViewController: UITableViewController {
         if let frame = self.parent?.view.frame {
             spinner.view.frame = frame
         }
-        filterHeight = parent?.children.first?.view.frame.height ?? .zero
+        navigationController?.isNavigationBarHidden = true
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        navigationController?.isNavigationBarHidden = false
     }
 
     private func showSpinner(isShown: Bool) {
@@ -58,19 +66,33 @@ class ResultsViewController: UITableViewController {
         }
     }
     
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        2
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        presenter.models.count
+        switch section {
+        case 1: return presenter.models.count
+        default: return 1
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CharacterTableViewCell.description(), for: indexPath)
-        (cell as? CharacterTableViewCell)?.configureWith(presenter.models[indexPath.row], tag: indexPath.row)
-        (cell as? CharacterTableViewCell)?.configureActions(target: self, dropDown: #selector(dropDownButtonTapped(_:)), readMore: #selector(readMore))
-        (cell as? CharacterTableViewCell)?.configureDropDown(isActive: presenter.expandedDict[indexPath] ?? false)
-        return cell
+        if indexPath.section == 1 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: CharacterTableViewCell.description(), for: indexPath)
+            (cell as? CharacterTableViewCell)?.configureWith(presenter.models[indexPath.row], tag: indexPath.row)
+            (cell as? CharacterTableViewCell)?.configureActions(target: self, dropDown: #selector(dropDownButtonTapped(_:)), readMore: #selector(readMore))
+            (cell as? CharacterTableViewCell)?.configureDropDown(isActive: presenter.expandedDict[indexPath] ?? false)
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: FilterTableViewCell.description(), for: indexPath)
+            (cell as? FilterTableViewCell)?.configure(filter.view)
+            return cell
+        }
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard indexPath.section == 1 else { return }
         if indexPath.row > presenter.models.count - 2 {
             presenter.getCharacters()
         }
@@ -90,8 +112,8 @@ class ResultsViewController: UITableViewController {
     }
     
     @objc private func dropDownButtonTapped(_ sender: UIButton) {
-        closeOthers?()
-        let indexPath = IndexPath(row: sender.tag, section: .zero)
+        filter.closeFilters()
+        let indexPath = IndexPath(row: sender.tag, section: 1)
         if let existed = presenter.expandedDict[indexPath] {
             presenter.expandedDict[indexPath] = !existed
         } else {
@@ -102,7 +124,7 @@ class ResultsViewController: UITableViewController {
     
     @objc private func readMore(_ sender: UIButton) {
         let model = presenter.models[sender.tag]
-        onCharacterDetails?(model)
+        router.onCharacterDetail(model)
     }
     
     func reloadView() {
@@ -110,27 +132,7 @@ class ResultsViewController: UITableViewController {
     }
     
     func reloadRowAt(index: Int) {
-        tableView.reloadRows(at: [IndexPath(row: index, section: .zero)], with: .none)
+        tableView.reloadRows(at: [IndexPath(row: index, section: 1)], with: .none)
     }
     
-    var filterHeight: CGFloat = 0
-    
-    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        guard let filterView = parent?.children.first?.view else { return }
-        if scrollView.bounds.contains(filterView.bounds) {
-            tableView.isScrollEnabled = false
-        } else {
-            tableView.isScrollEnabled = true
-        }
-        if scrollView == tableView {
-            tableView.isScrollEnabled = (tableView.contentOffset.y > 0)
-        }
-    }
-    
-    override func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        let currentOffset = scrollView.contentOffset.y
-        let targetOffset = CGFloat(targetContentOffset.pointee.y)
-        print(currentOffset, targetOffset)
-    }
-
 }

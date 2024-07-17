@@ -10,7 +10,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    let vc = MainViewController()
+    let results = ResultsFactory.build()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = window
         window.makeKeyAndVisible()
         window.overrideUserInterfaceStyle = .dark
-        let navigation = UINavigationController(rootViewController: vc)
+        let navigation = UINavigationController(rootViewController: results)
         window.rootViewController = navigation
     }
 

@@ -63,7 +63,13 @@ class ResultsPresenter: iResultsPresenter {
     }
     
     private func makeModelFrom(_ model: CharacterResponse) -> CharacterModel {
-        CharacterModel(name: model.name, status: Status(rawValue: model.status) ?? .alive, species: Species(rawValue: model.species) ?? .alien, lastLocation: model.location.name, firstEpisode: " ", info: CharacterInfo.text, imageData: nil)
+        CharacterModel(name: model.name, 
+                       status: Status(rawValue: model.status) ?? .alive,
+                       species: Species(rawValue: model.species) ?? .alien,
+                       lastLocation: model.location.name,
+                       firstEpisode: " ",
+                       info: CharacterInfo.text,
+                       imageData: nil)
     }
     
     private func refresh() {
