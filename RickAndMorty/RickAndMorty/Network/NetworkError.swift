@@ -8,6 +8,7 @@
 import Foundation
 
 enum NetworkError: Error {
+    case notFound(code: Int)
     case client(code: Int)
     case server(code: Int)
     case response
@@ -16,16 +17,18 @@ enum NetworkError: Error {
 
     var message: String {
         switch self {
+        case .notFound(let code):
+            return "\(code) not found"
         case .client(let code):
-            return "\(code): Ошибка клиента"
+            return "\(code): client error"
         case .server(let code):
-            return "\(code): Ошибка сервера"
+            return "\(code): server error"
         case .response:
-            return "Сервер не отвечает"
+            return "no resposne"
         case .data:
-            return "Данные отсутствуют"
+            return "data error"
         case .unknown(let code):
-            return "\(code): Неизвестная ошибка"
+            return "\(code): unknown error"
         }
     }
 }

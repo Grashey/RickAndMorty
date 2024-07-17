@@ -23,7 +23,6 @@ class ResultsPresenter: iResultsPresenter {
     
     var models: [CharacterModel] = []
     var masterArray: [CharacterResponse] = []
-    var filteredArray: [CharacterResponse] = []
     // хранение открытых/закрытых ячеек
     var expandedDict: [IndexPath : Bool] = [:]
     
@@ -51,8 +50,11 @@ class ResultsPresenter: iResultsPresenter {
                 let response = try JSONDecoder().decode(CharacterListResponse.self, from: data)
                 pageCount = response.info.pages
                 let characters = response.results
-                masterArray += characters
-                models += characters.map{makeModelFrom($0)}
+                DispatchQueue.global().sync {
+                    let filtered = locationFiltered(characters)
+                    masterArray += filtered
+                    models += filtered.map{makeModelFrom($0)}
+                }
                 await viewController?.reloadView()
                 currentPage += 1
             } catch {
@@ -60,6 +62,15 @@ class ResultsPresenter: iResultsPresenter {
             }
             isLoading = false
         }
+    }
+    
+    // TODO: episode filter
+    private func locationFiltered(_ array: [CharacterResponse]) -> [CharacterResponse] {
+        var newArray: [CharacterResponse] = array
+        if let location = filter.location {
+            newArray = array.filter({$0.location.name == location})
+        }
+        return newArray
     }
     
     private func makeModelFrom(_ model: CharacterResponse) -> CharacterModel {
@@ -77,7 +88,6 @@ class ResultsPresenter: iResultsPresenter {
         pageCount = nil
         models = []
         masterArray = []
-        filteredArray = []
         expandedDict.removeAll()
         viewController?.reloadView()
     }

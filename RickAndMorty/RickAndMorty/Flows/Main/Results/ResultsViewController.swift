@@ -33,7 +33,6 @@ class ResultsViewController: UITableViewController {
         tableView.bounces = false
         tableView.backgroundColor = .rm_black
         tableView.separatorStyle = .none
-        tableView.showsVerticalScrollIndicator = false
         tableView.register(CharacterTableViewCell.self, forCellReuseIdentifier: CharacterTableViewCell.description())
         tableView.register(FilterTableViewCell.self, forCellReuseIdentifier: FilterTableViewCell.description())
         presenter.getCharacters()
@@ -47,8 +46,8 @@ class ResultsViewController: UITableViewController {
         navigationController?.isNavigationBarHidden = true
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         navigationController?.isNavigationBarHidden = false
     }
 

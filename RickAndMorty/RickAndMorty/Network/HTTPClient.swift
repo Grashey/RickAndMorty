@@ -43,6 +43,9 @@ final class HTTPClient: iHTTPClient {
             throw NetworkError.response
         }
         if (400..<500).contains(httpResponse.statusCode) {
+            if httpResponse.statusCode == 404 {
+                throw NetworkError.notFound(code: httpResponse.statusCode)
+            }
             throw NetworkError.client(code: httpResponse.statusCode)
         }
         if (500..<600).contains(httpResponse.statusCode) {

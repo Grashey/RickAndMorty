@@ -45,8 +45,10 @@ class DropDownPresenter: iDropDownPresenter {
                 let response = try JSONDecoder().decode(ListResponse.self, from: data)
                 pageCount = response.info.pages
                 let pageItems = response.results.map({$0.name})
-                pageDict[currentPage] = pageItems
-                items += pageItems
+                DispatchQueue.global().sync {
+                    pageDict[currentPage] = pageItems
+                    items += pageItems
+                }
                 await viewController?.reloadView()
                 currentPage += 1
             } catch {
