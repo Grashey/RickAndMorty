@@ -9,7 +9,7 @@ import UIKit
 
 class CharacterViewController: UIViewController {
     
-    var model: CharacterModel!
+    var presenter: iCharacterPresenter!
     
     private lazy var characterView = CharacterView()
     
@@ -22,8 +22,8 @@ class CharacterViewController: UIViewController {
         navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationController?.navigationBar.titleTextAttributes = [.font: UIFont(name: Fonts.bold, size: UIConstants.headerFontSize) ?? .systemFont(ofSize: UIConstants.headerFontSize, weight: .bold),
                                                                    .foregroundColor: UIColor.rm_white]
-        title = model.name
-        characterView.configureWith(model)
+        title = presenter.model.name
+        characterView.configureWith(presenter.model)
     }
     
 }

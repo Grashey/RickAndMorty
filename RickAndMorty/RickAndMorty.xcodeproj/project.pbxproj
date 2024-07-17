@@ -64,6 +64,9 @@
 		4AA0CF932C46C7A400CE4C51 /* SpinnerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CF922C46C7A400CE4C51 /* SpinnerController.swift */; };
 		4AA0CF982C46EFC500CE4C51 /* EpisodeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CF972C46EFC500CE4C51 /* EpisodeResponse.swift */; };
 		4AA0CF9D2C4822AF00CE4C51 /* FilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CF9C2C4822AF00CE4C51 /* FilterTableViewCell.swift */; };
+		4AA0CF9F2C484E3300CE4C51 /* CharacterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CF9E2C484E3300CE4C51 /* CharacterPresenter.swift */; };
+		4AA0CFA22C484EC100CE4C51 /* CharacterFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CFA12C484EC100CE4C51 /* CharacterFactory.swift */; };
+		4AA0CFA52C484F2600CE4C51 /* CharacterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CFA42C484F2600CE4C51 /* CharacterInput.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -126,6 +129,9 @@
 		4AA0CF922C46C7A400CE4C51 /* SpinnerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerController.swift; sourceTree = "<group>"; };
 		4AA0CF972C46EFC500CE4C51 /* EpisodeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeResponse.swift; sourceTree = "<group>"; };
 		4AA0CF9C2C4822AF00CE4C51 /* FilterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FilterTableViewCell.swift; path = RickAndMorty/Helpers/FilterTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		4AA0CF9E2C484E3300CE4C51 /* CharacterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterPresenter.swift; sourceTree = "<group>"; };
+		4AA0CFA12C484EC100CE4C51 /* CharacterFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterFactory.swift; sourceTree = "<group>"; };
+		4AA0CFA42C484F2600CE4C51 /* CharacterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterInput.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -272,8 +278,10 @@
 		4AA0CF472C426AC400CE4C51 /* Character */ = {
 			isa = PBXGroup;
 			children = (
-				4AA0CF4A2C426CB100CE4C51 /* CharacterView.swift */,
+				4AA0CFA32C484EC500CE4C51 /* Factory */,
+				4AA0CFA02C484E3800CE4C51 /* View */,
 				4AA0CF452C426AC000CE4C51 /* CharacterViewController.swift */,
+				4AA0CF9E2C484E3300CE4C51 /* CharacterPresenter.swift */,
 			);
 			path = Character;
 			sourceTree = "<group>";
@@ -395,13 +403,38 @@
 		4AA0CF992C4720CC00CE4C51 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				4AA0CF4C2C427C4500CE4C51 /* MainRouter.swift */,
+				4AA0CFA62C484FCA00CE4C51 /* Navigation */,
 				4A1AEC9F2C3DB80500FB726A /* DropDownMenu */,
 				4A1AEC922C3C0E9700FB726A /* Filter */,
 				4AA0CF2D2C3E844B00CE4C51 /* Header */,
 				4AA0CF382C414E3500CE4C51 /* Results */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		4AA0CFA02C484E3800CE4C51 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4AA0CF4A2C426CB100CE4C51 /* CharacterView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4AA0CFA32C484EC500CE4C51 /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				4AA0CFA12C484EC100CE4C51 /* CharacterFactory.swift */,
+				4AA0CFA42C484F2600CE4C51 /* CharacterInput.swift */,
+			);
+			path = Factory;
+			sourceTree = "<group>";
+		};
+		4AA0CFA62C484FCA00CE4C51 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				4AA0CF4C2C427C4500CE4C51 /* MainRouter.swift */,
+			);
+			path = Navigation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -486,6 +519,7 @@
 				4AA0CF572C44250600CE4C51 /* ListResponse.swift in Sources */,
 				4A1AEC8E2C3BD55900FB726A /* RmButton.swift in Sources */,
 				4AA0CF732C452B6800CE4C51 /* DropDownInput.swift in Sources */,
+				4AA0CFA52C484F2600CE4C51 /* CharacterInput.swift in Sources */,
 				4A1AEC962C3C0EC300FB726A /* FilterView.swift in Sources */,
 				4AA0CF712C452B4900CE4C51 /* ModuleInput.swift in Sources */,
 				4A1AEC762C37D8C100FB726A /* DropDownButton.swift in Sources */,
@@ -502,6 +536,7 @@
 				4AA0CF792C4536F600CE4C51 /* UIViewController + Ext.swift in Sources */,
 				4AA0CF2A2C3E7D0400CE4C51 /* HeaderView.swift in Sources */,
 				4AA0CF4B2C426CB100CE4C51 /* CharacterView.swift in Sources */,
+				4AA0CF9F2C484E3300CE4C51 /* CharacterPresenter.swift in Sources */,
 				4AA0CF6F2C452AC000CE4C51 /* DropDownMenuFactory.swift in Sources */,
 				4AA0CF4D2C427C4500CE4C51 /* MainRouter.swift in Sources */,
 				4AA0CF632C442C9600CE4C51 /* DropDownNetworkService.swift in Sources */,
@@ -525,6 +560,7 @@
 				4A1AEC902C3BE43500FB726A /* UIConstants.swift in Sources */,
 				4A1AEC982C3C1A1C00FB726A /* FilterModel.swift in Sources */,
 				4AA0CF2C2C3E7E8700CE4C51 /* HeaderViewController.swift in Sources */,
+				4AA0CFA22C484EC100CE4C51 /* CharacterFactory.swift in Sources */,
 				4AA0CF592C44275100CE4C51 /* Route.swift in Sources */,
 				4AA0CF982C46EFC500CE4C51 /* EpisodeResponse.swift in Sources */,
 				4AA0CF7B2C45391A00CE4C51 /* FilterPresenter.swift in Sources */,

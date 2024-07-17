@@ -24,7 +24,7 @@ enum NetworkError: Error {
         case .server(let code):
             return "\(code): server error"
         case .response:
-            return "no resposne"
+            return "no response"
         case .data:
             return "data error"
         case .unknown(let code):

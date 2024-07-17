@@ -10,8 +10,8 @@ import UIKit
 class MainRouter: Router {
     
     func onCharacterDetail(_ model: CharacterModel) {
-        let controller = CharacterViewController()
-        controller.model = model
+        let input = CharacterInput(model: model)
+        let controller = CharacterFactory.build(input: input)
         push(controller)
     }
 }
