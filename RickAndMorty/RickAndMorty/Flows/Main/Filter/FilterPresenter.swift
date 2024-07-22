@@ -15,7 +15,7 @@ class FilterPresenter: iFilterPresenter {
     
     weak var viewController: FilterViewController?
     
-    var filter: FilterModel = FilterModel(name: nil, status: .dead, species: nil, location: nil, appearance: nil) {
+    var filter: FilterModel = FilterModel(name: nil, status: .dead, species: nil, location: DropListModel(id: .zero, name: "All"), appearance: DropListModel(id: .zero, name: "All")) {
         didSet {
             viewController?.filterChanged?(filter)
             NotificationCenter.default.post(name: .filterChanged, object: nil, userInfo: ["filter":filter])

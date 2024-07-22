@@ -8,7 +8,7 @@
 import Foundation
 
 protocol iDropDownPresenter {
-    var items: [String] {get set}
+    var items: [DropListModel] {get set}
     
     func getList()
 }
@@ -19,8 +19,8 @@ class DropDownPresenter: iDropDownPresenter {
     private let networkSrvice: iDropDownNetworkService
     private let listType: DropDownListType
     
-    var items: [String]  = ["All"]
-    private var pageDict: [Int:[String]] = [:]
+    var items: [DropListModel]  = [DropListModel(id: 0, name: "All")]
+    private var pageDict: [Int:[DropListModel]] = [:]
     private var currentPage: Int = 1
     private var pageCount: Int?
     
@@ -44,11 +44,9 @@ class DropDownPresenter: iDropDownPresenter {
                 }
                 let response = try JSONDecoder().decode(ListResponse.self, from: data)
                 pageCount = response.info.pages
-                let pageItems = response.results.map({$0.name})
-                DispatchQueue.global().sync {
-                    pageDict[currentPage] = pageItems
-                    items += pageItems
-                }
+                let pageItems = response.results.map({DropListModel(id: $0.id, name: $0.name)})
+                pageDict[currentPage] = pageItems
+                items += pageItems
                 await viewController?.reloadView()
                 currentPage += 1
             } catch {

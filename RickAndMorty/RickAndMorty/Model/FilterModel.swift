@@ -11,8 +11,8 @@ struct FilterModel {
     var name: String?
     var status: Status
     var species: Species?
-    var location: String?
-    var appearance: String?
+    var location: DropListModel
+    var appearance: DropListModel
 }
 
 enum Status: String {

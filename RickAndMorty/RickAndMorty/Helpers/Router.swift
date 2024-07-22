@@ -7,13 +7,15 @@
 
 import UIKit
 
-class Router {
+protocol Router {
     
-    weak var delegate: UIViewController?
+    var delegate: UIViewController? {get set}
+}
+
+extension Router {
     
     func push(_ controller: UIViewController) {
         guard let delegate = delegate else { return }
         delegate.navigationController?.pushViewController(controller, animated: true)
     }
-        
 }

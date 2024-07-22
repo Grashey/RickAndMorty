@@ -67,6 +67,17 @@
 		4AA0CF9F2C484E3300CE4C51 /* CharacterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CF9E2C484E3300CE4C51 /* CharacterPresenter.swift */; };
 		4AA0CFA22C484EC100CE4C51 /* CharacterFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CFA12C484EC100CE4C51 /* CharacterFactory.swift */; };
 		4AA0CFA52C484F2600CE4C51 /* CharacterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CFA42C484F2600CE4C51 /* CharacterInput.swift */; };
+		4AA0CFA82C4869D600CE4C51 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CFA72C4869D600CE4C51 /* CoreDataStack.swift */; };
+		4AA0CFAB2C4869F100CE4C51 /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CFA92C4869F100CE4C51 /* CoreDataModel.xcdatamodeld */; };
+		4AA0CFB22C486C6A00CE4C51 /* Character+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CFAC2C486C6A00CE4C51 /* Character+CoreDataClass.swift */; };
+		4AA0CFB32C486C6A00CE4C51 /* Character+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CFAD2C486C6A00CE4C51 /* Character+CoreDataProperties.swift */; };
+		4AA0CFB42C486C6A00CE4C51 /* Location+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CFAE2C486C6A00CE4C51 /* Location+CoreDataClass.swift */; };
+		4AA0CFB52C486C6A00CE4C51 /* Location+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CFAF2C486C6A00CE4C51 /* Location+CoreDataProperties.swift */; };
+		4AA0CFB62C486C6A00CE4C51 /* Episode+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CFB02C486C6A00CE4C51 /* Episode+CoreDataClass.swift */; };
+		4AA0CFB72C486C6A00CE4C51 /* Episode+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CFB12C486C6A00CE4C51 /* Episode+CoreDataProperties.swift */; };
+		4AA0CFBA2C48712500CE4C51 /* DataKeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CFB92C48712500CE4C51 /* DataKeeper.swift */; };
+		4AA0CFBC2C48726400CE4C51 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CFBB2C48726400CE4C51 /* DIContainer.swift */; };
+		4AA0CFBF2C4F004900CE4C51 /* DropListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0CFBE2C4F004900CE4C51 /* DropListModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -132,6 +143,17 @@
 		4AA0CF9E2C484E3300CE4C51 /* CharacterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterPresenter.swift; sourceTree = "<group>"; };
 		4AA0CFA12C484EC100CE4C51 /* CharacterFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterFactory.swift; sourceTree = "<group>"; };
 		4AA0CFA42C484F2600CE4C51 /* CharacterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterInput.swift; sourceTree = "<group>"; };
+		4AA0CFA72C4869D600CE4C51 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		4AA0CFAA2C4869F100CE4C51 /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
+		4AA0CFAC2C486C6A00CE4C51 /* Character+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Character+CoreDataClass.swift"; sourceTree = "<group>"; };
+		4AA0CFAD2C486C6A00CE4C51 /* Character+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Character+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		4AA0CFAE2C486C6A00CE4C51 /* Location+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataClass.swift"; sourceTree = "<group>"; };
+		4AA0CFAF2C486C6A00CE4C51 /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		4AA0CFB02C486C6A00CE4C51 /* Episode+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Episode+CoreDataClass.swift"; sourceTree = "<group>"; };
+		4AA0CFB12C486C6A00CE4C51 /* Episode+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Episode+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		4AA0CFB92C48712500CE4C51 /* DataKeeper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataKeeper.swift; sourceTree = "<group>"; };
+		4AA0CFBB2C48726400CE4C51 /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
+		4AA0CFBE2C4F004900CE4C51 /* DropListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropListModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +188,7 @@
 			children = (
 				4A1AEC4D2C33F3F100FB726A /* AppDelegate.swift */,
 				4A1AEC4F2C33F3F100FB726A /* SceneDelegate.swift */,
+				4AA0CFB82C486C7400CE4C51 /* CoreData */,
 				4AA0CF7F2C4587F400CE4C51 /* Model */,
 				4AA0CF512C4420CD00CE4C51 /* Network */,
 				4AA0CF502C427F5000CE4C51 /* Helpers */,
@@ -291,6 +314,7 @@
 			children = (
 				4AA0CF4E2C427DFB00CE4C51 /* Router.swift */,
 				4AA0CF702C452B4900CE4C51 /* ModuleInput.swift */,
+				4AA0CFBD2C4876F800CE4C51 /* Data Keeper */,
 				4AA0CF782C4536F600CE4C51 /* UIViewController + Ext.swift */,
 				4AA0CF8A2C459BD200CE4C51 /* Notification.Name + Ext.swift */,
 				4AA0CF922C46C7A400CE4C51 /* SpinnerController.swift */,
@@ -359,6 +383,7 @@
 			isa = PBXGroup;
 			children = (
 				4A1AEC972C3C1A1C00FB726A /* FilterModel.swift */,
+				4AA0CFBE2C4F004900CE4C51 /* DropListModel.swift */,
 				4AA0CF392C414E8E00CE4C51 /* CharacterModel.swift */,
 			);
 			path = Model;
@@ -435,6 +460,30 @@
 				4AA0CF4C2C427C4500CE4C51 /* MainRouter.swift */,
 			);
 			path = Navigation;
+			sourceTree = "<group>";
+		};
+		4AA0CFB82C486C7400CE4C51 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				4AA0CFAC2C486C6A00CE4C51 /* Character+CoreDataClass.swift */,
+				4AA0CFAD2C486C6A00CE4C51 /* Character+CoreDataProperties.swift */,
+				4AA0CFAE2C486C6A00CE4C51 /* Location+CoreDataClass.swift */,
+				4AA0CFAF2C486C6A00CE4C51 /* Location+CoreDataProperties.swift */,
+				4AA0CFB02C486C6A00CE4C51 /* Episode+CoreDataClass.swift */,
+				4AA0CFB12C486C6A00CE4C51 /* Episode+CoreDataProperties.swift */,
+				4AA0CFA72C4869D600CE4C51 /* CoreDataStack.swift */,
+				4AA0CFA92C4869F100CE4C51 /* CoreDataModel.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		4AA0CFBD2C4876F800CE4C51 /* Data Keeper */ = {
+			isa = PBXGroup;
+			children = (
+				4AA0CFB92C48712500CE4C51 /* DataKeeper.swift */,
+				4AA0CFBB2C48726400CE4C51 /* DIContainer.swift */,
+			);
+			path = "Data Keeper";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -518,9 +567,16 @@
 				4AA0CF2F2C4021D000CE4C51 /* ExpandedButton.swift in Sources */,
 				4AA0CF572C44250600CE4C51 /* ListResponse.swift in Sources */,
 				4A1AEC8E2C3BD55900FB726A /* RmButton.swift in Sources */,
+				4AA0CFB22C486C6A00CE4C51 /* Character+CoreDataClass.swift in Sources */,
+				4AA0CFB32C486C6A00CE4C51 /* Character+CoreDataProperties.swift in Sources */,
+				4AA0CFB42C486C6A00CE4C51 /* Location+CoreDataClass.swift in Sources */,
+				4AA0CFB52C486C6A00CE4C51 /* Location+CoreDataProperties.swift in Sources */,
+				4AA0CFB62C486C6A00CE4C51 /* Episode+CoreDataClass.swift in Sources */,
+				4AA0CFB72C486C6A00CE4C51 /* Episode+CoreDataProperties.swift in Sources */,
 				4AA0CF732C452B6800CE4C51 /* DropDownInput.swift in Sources */,
 				4AA0CFA52C484F2600CE4C51 /* CharacterInput.swift in Sources */,
 				4A1AEC962C3C0EC300FB726A /* FilterView.swift in Sources */,
+				4AA0CFBF2C4F004900CE4C51 /* DropListModel.swift in Sources */,
 				4AA0CF712C452B4900CE4C51 /* ModuleInput.swift in Sources */,
 				4A1AEC762C37D8C100FB726A /* DropDownButton.swift in Sources */,
 				4AA0CF7D2C454F1D00CE4C51 /* FilterFactory.swift in Sources */,
@@ -533,6 +589,7 @@
 				4AA0CF3A2C414E8E00CE4C51 /* CharacterModel.swift in Sources */,
 				4AA0CF842C4589D900CE4C51 /* ResultsNetworkService.swift in Sources */,
 				4A1AEC9C2C3DAA1300FB726A /* DropDownTableViewCell.swift in Sources */,
+				4AA0CFBC2C48726400CE4C51 /* DIContainer.swift in Sources */,
 				4AA0CF792C4536F600CE4C51 /* UIViewController + Ext.swift in Sources */,
 				4AA0CF2A2C3E7D0400CE4C51 /* HeaderView.swift in Sources */,
 				4AA0CF4B2C426CB100CE4C51 /* CharacterView.swift in Sources */,
@@ -561,9 +618,12 @@
 				4A1AEC982C3C1A1C00FB726A /* FilterModel.swift in Sources */,
 				4AA0CF2C2C3E7E8700CE4C51 /* HeaderViewController.swift in Sources */,
 				4AA0CFA22C484EC100CE4C51 /* CharacterFactory.swift in Sources */,
+				4AA0CFA82C4869D600CE4C51 /* CoreDataStack.swift in Sources */,
 				4AA0CF592C44275100CE4C51 /* Route.swift in Sources */,
+				4AA0CFBA2C48712500CE4C51 /* DataKeeper.swift in Sources */,
 				4AA0CF982C46EFC500CE4C51 /* EpisodeResponse.swift in Sources */,
 				4AA0CF7B2C45391A00CE4C51 /* FilterPresenter.swift in Sources */,
+				4AA0CFAB2C4869F100CE4C51 /* CoreDataModel.xcdatamodeld in Sources */,
 				4AA0CF5F2C442A7D00CE4C51 /* NetworkError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -785,6 +845,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4AA0CFA92C4869F100CE4C51 /* CoreDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4AA0CFAA2C4869F100CE4C51 /* CoreDataModel.xcdatamodel */,
+			);
+			currentVersion = 4AA0CFAA2C4869F100CE4C51 /* CoreDataModel.xcdatamodel */;
+			path = CoreDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 4A1AEC422C33F3F100FB726A /* Project object */;
 }

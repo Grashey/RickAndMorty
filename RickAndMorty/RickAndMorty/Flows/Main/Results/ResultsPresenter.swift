@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 protocol iResultsPresenter {
     var models: [CharacterModel] {get set}
@@ -19,7 +20,7 @@ class ResultsPresenter: iResultsPresenter {
     
     weak var viewController: ResultsViewController?
     private let networkService: iResultsNetworkService
-    private var filter: FilterModel = FilterModel(name: nil, status: .dead, species: nil, location: nil, appearance: nil)
+    private var filter: FilterModel = FilterModel(name: nil, status: .dead, species: nil, location: DropListModel(id: .zero, name: "All"), appearance: DropListModel(id: .zero, name: "All"))
     
     var models: [CharacterModel] = []
     var masterArray: [CharacterResponse] = []
@@ -33,9 +34,22 @@ class ResultsPresenter: iResultsPresenter {
             viewController?.isLoading = isLoading
         }
     }
+    
+    private let coreDataStack = Container.shared.coreDataStack
+    private lazy var frc: NSFetchedResultsController<Character> = {
+        let request = Character.fetchRequest()
+        request.sortDescriptors = [.init(key: "id", ascending: false)]
+        let frc = NSFetchedResultsController(fetchRequest: request,
+                                             managedObjectContext: coreDataStack.mainContext,
+                                             sectionNameKeyPath: nil,
+                                             cacheName: nil)
+//        frc.delegate = viewController
+        return frc
+    }()
    
     init(networkService: iResultsNetworkService) {
         self.networkService = networkService
+        try? frc.performFetch()
         NotificationCenter.default.addObserver(self, selector: #selector(reflex(_:)), name: .filterChanged, object: nil)
     }
     
@@ -50,11 +64,10 @@ class ResultsPresenter: iResultsPresenter {
                 let response = try JSONDecoder().decode(CharacterListResponse.self, from: data)
                 pageCount = response.info.pages
                 let characters = response.results
-                DispatchQueue.global().sync {
-                    let filtered = locationFiltered(characters)
-                    masterArray += filtered
-                    models += filtered.map{makeModelFrom($0)}
-                }
+                var filtered = locationFiltered(characters)
+                filtered = episodeFiltered(filtered)
+                masterArray += filtered
+                models += filtered.map{makeModelFrom($0)}
                 await viewController?.reloadView()
                 currentPage += 1
             } catch {
@@ -64,11 +77,18 @@ class ResultsPresenter: iResultsPresenter {
         }
     }
     
-    // TODO: episode filter
     private func locationFiltered(_ array: [CharacterResponse]) -> [CharacterResponse] {
         var newArray: [CharacterResponse] = array
-        if let location = filter.location {
-            newArray = array.filter({$0.location.name == location})
+        if filter.location.id != .zero {
+            newArray = array.filter({$0.location.name == filter.location.name})
+        }
+        return newArray
+    }
+    
+    private func episodeFiltered(_ array: [CharacterResponse]) -> [CharacterResponse] {
+        var newArray: [CharacterResponse] = array
+        if filter.appearance.id != .zero {
+            newArray = array.filter({ $0.episode.contains(where: { Int($0.components(separatedBy: "/").last ?? "0")  == filter.appearance.id})})
         }
         return newArray
     }

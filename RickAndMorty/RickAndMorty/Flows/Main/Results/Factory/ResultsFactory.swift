@@ -10,7 +10,8 @@ import Foundation
 enum ResultsFactory {
     
     static func build() -> ResultsViewController {
-        let controller = ResultsViewController()
+        let router = MainRouter()
+        let controller = ResultsViewController(router: router)
         let httpClient = HTTPClient()
         let requestBuilder = RequestBuilder()
         let networkService = ResultsNetworkService(httpClient: httpClient, requestBuilder: requestBuilder)

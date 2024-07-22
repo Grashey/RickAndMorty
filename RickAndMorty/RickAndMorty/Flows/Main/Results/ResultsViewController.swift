@@ -11,6 +11,7 @@ import UIKit
 class ResultsViewController: UITableViewController {
     
     var presenter: iResultsPresenter!
+    private var router: MainRouter
     
     private let spinner = SpinnerController()
     var isLoading = false {
@@ -22,10 +23,19 @@ class ResultsViewController: UITableViewController {
     
     // MARK: Child
     var filter: FilterViewController!
-    private let router = MainRouter()
+        
+    init(router: MainRouter) {
+        self.router = router
+        super.init(nibName: nil, bundle: nil)
+    }
     
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func viewDidLoad() {
         router.delegate = self
+        
         filter = FilterFactory.build()
         addChild(filter)
         filter?.didMove(toParent: self)

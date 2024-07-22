@@ -58,12 +58,12 @@ class FilterViewController: UIViewController {
             
             list.itemSelected = { [unowned self] item in
                 switch listType {
-                case .location: presenter.filter.location = (item == "All") ? nil : item
-                case .episode: presenter.filter.appearance = (item == "All") ? nil : item
+                case .location: presenter.filter.location = item
+                case .episode: presenter.filter.appearance = item
                 }
                 hideMenu()
                 sender.isSelected.toggle()
-                sender.setTitle(item, for: .normal)
+                sender.setTitle(item.name, for: .normal)
             }
         }
     }

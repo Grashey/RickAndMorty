@@ -12,7 +12,7 @@ class DropDownMenu: UITableViewController {
     var presenter: iDropDownPresenter!
     
     // MARK: Callback
-    var itemSelected: ((String) -> Void)?
+    var itemSelected: ((DropListModel) -> Void)?
     
     override func viewDidLoad() {
         tableView.register(DropDownTableViewCell.self, forCellReuseIdentifier: DropDownTableViewCell.description())
@@ -36,7 +36,7 @@ class DropDownMenu: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: DropDownTableViewCell.description(), for: indexPath)
-        (cell as? DropDownTableViewCell)?.configureWith(presenter.items[indexPath.row])
+        (cell as? DropDownTableViewCell)?.configureWith(presenter.items[indexPath.row].name)
         return cell
     }
     
