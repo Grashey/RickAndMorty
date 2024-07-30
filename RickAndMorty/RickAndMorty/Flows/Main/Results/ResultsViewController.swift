@@ -137,7 +137,10 @@ class ResultsViewController: UITableViewController {
     }
     
     func reloadView() {
-        tableView.reloadData()
+        let segmentControlAnimationTime: CGFloat = 0.25
+        DispatchQueue.main.asyncAfter(deadline: .now() + segmentControlAnimationTime) { [unowned self] in
+            tableView.reloadData()
+        }
     }
     
     func reloadRowAt(index: Int) {
